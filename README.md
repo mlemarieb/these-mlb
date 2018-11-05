@@ -19,11 +19,17 @@ Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docp
 * [appendix](/appendix/): annexes du document
 * [build](/build/): fichiers produits lors de la compilation
 
-**Copiez l'ensemble du projet en local puis compilez le fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw).** 
 
-## Compilation win
+## Pré-requis
 
-Si vous utilisez windows et la distribution [MiKTeX](https://miktex.org/), vous devez exécuter les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
+1. Vous devez disposer d'une distribution TeX. Si vous êtes sous windows, téléchargez [MiKTeX](https://miktex.org/). Si vous êtes sous mac os, téléchargez [MacTeX](http://www.tug.org/mactex/)).
+2. Installez un éditeur. Personnellement, je recommande [TeXMaker](http://www.xm1math.net/texmaker/).
+
+Une fois ces pré-requis installés, **copiez l'ensemble du projet en local via le bouton `git clone`, ouvrez dans votre éditeur puis compilez le fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw).** 
+
+### Compilation win
+
+Si vous utilisez windows et la distribution MikTeX, vous devez exécuter les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
 
 `"C:/Program Files/R/R-3.5.1/bin/i386/R.exe" CMD Sweave %.Rnw --encoding=utf8 | 
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
@@ -34,9 +40,9 @@ biber build/% | pdflatex -output-directory=build -synctex=1 -interaction=nonstop
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex| 
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex`
 
-## Compilation mac os
+### Compilation mac os
 
-Si vous utilisez mac os et la distribution [MacTeX](http://www.tug.org/mactex/), vous devez exécuter les commandes suivantes: 
+Si vous utilisez mac os et la distribution MacTeX, vous devez exécuter les commandes suivantes: 
 
 `R CMD Sweave %.Rnw --encoding=utf8 | 
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
@@ -46,6 +52,8 @@ Si vous utilisez mac os et la distribution [MacTeX](http://www.tug.org/mactex/),
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
 "/usr/texbin/biber" build/%  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex` 
 
-## Encodage
+**Important: Encodage** L'ensemble des documents sont codés en UTF-8. L'encodage doit être déclaré en préambule (voir le fichier [preambule/packages_communs.tex](preambule/packages_communs.tex) et lors de l'exécution de la commande `sweave`. 
 
-L'ensemble des documents sont codés en UTF-8. L'encodage doit être déclaré en préambule (voir le fichier [preambule/packages_communs.tex](preambule/packages_communs.tex) et lors de l'exécution de la commande `sweave`. 
+## License
+
+`Copyright 2018 Marie Lemarié-Boutry`
