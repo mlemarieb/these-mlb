@@ -36,6 +36,7 @@ pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex
 
 Si vous utilisez mac os et la distribution MacTeX, vous devez exécuter les commandes suivantes: 
 
+R CMD Sweave %.Rnw --encoding=utf8 | 
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
 "/usr/texbin/makeindex" -s build/%.ist -t build/%.alg -o build/%.acr build/%.acn | 
 "/usr/texbin/makeindex" -s build/%.ist -t build/%.glg -o build/%.gls build/%.glo | 
