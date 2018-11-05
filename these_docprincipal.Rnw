@@ -1,0 +1,65 @@
+
+%%%%%%%%%%
+% Préambule
+\input{preambule/preambule.tex}
+
+%%%%%%%%%%
+% Titre et auteur
+\title{Un modèle de thèse \LaTeX{} en français utilisant entre autres Sweave, Bib\LaTeX{}, Glossary et Ti\textit{k}Z}
+\author{Marie Lemarié-Boutry}
+
+%%%%%%%%%%
+% Chargement des résultats
+<<label=scripts,echo=FALSE,results=hide>>=
+load("sorties/Rdatasets.RData")
+options(width=80) # Largeur maximale d'une ligne de commande R
+@
+
+%%%%%%%%%%
+% Contenu
+\begin{document}
+
+% Frontmatter
+\frontmatter
+% Page de garde
+\includepdf{build/pagegarde.pdf}% fichier pagegarde.tex à compiler au préalable simplement avec pdf latex 
+
+\setcounter{page}{1}
+\cleardoublepage
+\input{front/front.tex}
+
+% Corps du document
+\mainmatter
+\cleardoublepage
+\pagestyle{scrheadings} 
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Introduction générale}
+\chapter*{Introduction générale \label{chap:intro}}\markboth{Introduction générale}{Introduction générale}
+\SweaveInput{corpus/intro.Rnw}
+
+\chapter[Dans le texte]{\Longstack[l]{Dans le texte: citations, références, \\ acronymes et glossaire}  \label{chap:1}}% 
+\SweaveInput{corpus/chap1.Rnw}
+\chapter[Un peu de maths]{\Longstack[l]{Un peu de maths: nombres, \\ unités, sweave, équations \\ et tableaux} \label{chap:3}}%
+\SweaveInput{corpus/chap2.Rnw}
+\chapter[Flottants]{\Longstack[l]{Flottants:  encadrés, images, \\  TikZ et  tableaux} \label{chap:2}}%
+\SweaveInput{corpus/chap3.Rnw}
+
+\cleardoublepage 
+\phantomsection
+\addcontentsline{toc}{chapter}{Conclusion générale}
+\chapter*{Conclusion générale \label{chap:conclu}}\markboth{Conclusion générale}{Conclusion générale}
+\SweaveInput{corpus/conclusion.Rnw}
+
+% Appendix
+\appendix
+\cleardoublepage 
+\input{appendix/app.tex}
+
+% Backmatter
+\backmatter
+\cleardoublepage 
+\pagestyle{scrheadings} 
+\input{back/back.tex}
+
+\end{document}
