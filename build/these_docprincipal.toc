@@ -45,15 +45,29 @@
 \babel@toc {french}{}
 \contentsline {section}{Publications institutionnelles}{35}{section*.30}
 \contentsline {section}{Textes juridiques}{35}{section*.32}
-\contentsline {section}{Articles de presse}{35}{section*.33}
-\babel@toc {french}{}
-\babel@toc {french}{}
-\contentsline {section}{Bases de donn\IeC {\'e}es}{35}{section*.35}
 \babel@toc {french}{}
 \babel@toc {french}{}
 \babel@toc {french}{}
 \babel@toc {french}{}
-\contentsline {section}{Documentation technique}{36}{section*.37}
+\contentsline {section}{Articles de presse}{35}{section*.34}
+\babel@toc {french}{}
+\babel@toc {french}{}
+\contentsline {section}{Bases de donn\IeC {\'e}es}{36}{section*.36}
+\babel@toc {french}{}
+\babel@toc {french}{}
+\babel@toc {french}{}
+\babel@toc {french}{}
+\contentsline {section}{Documentation technique}{36}{section*.38}
+\babel@toc {english}{}
+\babel@toc {french}{}
+\babel@toc {english}{}
+\babel@toc {french}{}
+\babel@toc {english}{}
+\babel@toc {french}{}
+\babel@toc {english}{}
+\babel@toc {french}{}
+\babel@toc {french}{}
+\babel@toc {french}{}
 \babel@toc {english}{}
 \babel@toc {french}{}
 \babel@toc {english}{}
@@ -64,14 +78,10 @@
 \babel@toc {french}{}
 \babel@toc {english}{}
 \babel@toc {french}{}
-\babel@toc {english}{}
-\babel@toc {french}{}
-\babel@toc {french}{}
-\babel@toc {french}{}
-\contentsline {chapter}{Liste des acronymes et abr\IeC {\'e}viations}{37}{section*.39}
-\contentsline {chapter}{Glossaire}{39}{section*.42}
-\contentsline {chapter}{Table des illustrations}{41}{section*.45}
-\contentsline {section}{Figures}{41}{section*.47}
-\contentsline {section}{Tableaux}{41}{section*.49}
-\contentsline {section}{Encadr\IeC {\'e}s}{41}{section*.51}
-\contentsline {chapter}{Table des mati\IeC {\`e}res}{43}{section*.53}
+\contentsline {chapter}{Liste des acronymes et abr\IeC {\'e}viations}{39}{section*.40}
+\contentsline {chapter}{Glossaire}{41}{section*.43}
+\contentsline {chapter}{Table des illustrations}{43}{section*.46}
+\contentsline {section}{Figures}{43}{section*.48}
+\contentsline {section}{Tableaux}{43}{section*.50}
+\contentsline {section}{Encadr\IeC {\'e}s}{43}{section*.52}
+\contentsline {chapter}{Table des mati\IeC {\`e}res}{45}{section*.54}

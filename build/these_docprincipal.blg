@@ -1,22 +1,15 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'build/these_docprincipal.blg'
-[35] biber-MSWIN64:313> INFO - === 
-[73] Biber.pm:371> INFO - Reading 'build/these_docprincipal.bcf'
-[192] Biber.pm:857> INFO - Found 21 citekeys in bib section 0
-[208] Biber.pm:3976> INFO - Processing section 0
+[32] biber-MSWIN64:313> INFO - === 
+[69] Biber.pm:371> INFO - Reading 'build/these_docprincipal.bcf'
+[181] Biber.pm:857> INFO - Found 23 citekeys in bib section 0
+[202] Biber.pm:3976> INFO - Processing section 0
 [225] Biber.pm:4136> INFO - Looking for bibtex format file 'ressources/Bibliotheques/biblio_exemple.bib' for section 0
-[247] bibtex.pm:1500> INFO - LaTeX decoding ...
-[357] bibtex.pm:1316> INFO - Found BibTeX data source 'ressources/Bibliotheques/biblio_exemple.bib'
-[426] Utils.pm:193> WARN - Entry 'LAVIGNE20130531' (ressources/Bibliotheques/biblio_exemple.bib): Invalid format 'Magazine viticole' of date field 'urldate' - ignoring
-[426] Utils.pm:193> WARN - month field 'mai' in entry 'LAVIGNE20130531' is not an integer - this will probably not sort properly.
-[433] Utils.pm:193> WARN - Entry 'DBINSEERGP' (ressources/Bibliotheques/biblio_exemple.bib): Invalid format '24 janvier 2013' of date field 'urldate' - ignoring
-[495] Utils.pm:193> WARN - I didn't find a database entry for 'Dray2007' (section 0)
-[495] Utils.pm:193> WARN - I didn't find a database entry for 'Zeiles2002' (section 0)
-[495] Utils.pm:193> WARN - I didn't find a database entry for 'Muggeo2008' (section 0)
-[534] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[534] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[535] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'fr-FR'
-[535] Biber.pm:3810> INFO - No sort tailoring available for locale 'fr-FR'
-[569] bbl.pm:617> INFO - Writing 'build/these_docprincipal.bbl' with encoding 'UTF-8'
-[581] bbl.pm:720> INFO - Output to build/these_docprincipal.bbl
-[582] Biber.pm:110> INFO - WARNINGS: 6
+[237] bibtex.pm:1500> INFO - LaTeX decoding ...
+[344] bibtex.pm:1316> INFO - Found BibTeX data source 'ressources/Bibliotheques/biblio_exemple.bib'
+[495] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[495] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[495] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'fr-FR'
+[495] Biber.pm:3810> INFO - No sort tailoring available for locale 'fr-FR'
+[529] bbl.pm:617> INFO - Writing 'build/these_docprincipal.bbl' with encoding 'UTF-8'
+[552] bbl.pm:720> INFO - Output to build/these_docprincipal.bbl

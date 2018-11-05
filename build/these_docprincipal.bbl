@@ -82,9 +82,13 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{{La Vigne}}
-      \field{month}{mai}
+      \field{month}{5}
       \field{title}{Prix du foncier viticole : la hausse s'est poursuivie en 2012}
+      \field{urlday}{2}
+      \field{urlmonth}{1}
+      \field{urlyear}{2014}
       \field{year}{2013}
+      \field{urldateera}{ce}
       \verb{file}
       \verb LAVIGNE20130531.pdf:Presse/LAVIGNE20130531.pdf:PDF
       \endverb
@@ -95,7 +99,6 @@
       \verb http://www.lavigne-mag.fr/actualites-viticulture-vin/prix-du-foncier-viticole-la-hausse-s-est-poursuivie-en-2012-72969.html
       \endverb
       \keyw{land market,vineyard}
-      \warn{\item Entry 'LAVIGNE20130531' (ressources/Bibliotheques/biblio_exemple.bib): Invalid format 'Magazine viticole' of date field 'urldate' - ignoring}
     \endentry
     \entry{Bivand2012}{manual}{}
       \name{author}{1}{}{%
@@ -178,6 +181,70 @@
       \verb http://www.recherche-foncier.fr/2013/11/vient-de-paraitre-les-mots-du-foncier/
       \endverb
       \keyw{thesaurus,land}
+    \endentry
+    \entry{DECRETLOI19350730}{legislation}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{alias}{Décret-loi du 30 juillet 1935}
+      \field{day}{31}
+      \field{journaltitle}{Journal officiel de la République française}
+      \field{langid}{french}
+      \field{month}{7}
+      \field{title}{Décret-loi du 30 juillet 1935 relatif à la défense du marché des vins et régime économique de l'alcool}
+      \field{year}{1935}
+      \field{dateera}{ce}
+      \field{pages}{8314}
+      \range{pages}{1}
+      \keyw{law}
+    \endentry
+    \entry{Dray2007}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=f388e984e9ea78afb0916d9d906a8409}{%
+           family={Dray},
+           familyi={D\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=effef1f0ca888df359e00103576e6bff}{%
+           family={Dufour},
+           familyi={D\bibinitperiod},
+           given={A.B.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d266df5b4c7eec500861ee442fbf457c}
+      \strng{fullhash}{d266df5b4c7eec500861ee442fbf457c}
+      \strng{bibnamehash}{d266df5b4c7eec500861ee442fbf457c}
+      \strng{authorbibnamehash}{d266df5b4c7eec500861ee442fbf457c}
+      \strng{authornamehash}{d266df5b4c7eec500861ee442fbf457c}
+      \strng{authorfullhash}{d266df5b4c7eec500861ee442fbf457c}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Statistical Software}
+      \field{langid}{english}
+      \field{number}{4}
+      \field{title}{Ade4 R-package : implementing the duality diagram for ecologists}
+      \field{volume}{22}
+      \field{year}{2007}
+      \field{pages}{1\bibrangedash 20}
+      \range{pages}{20}
+      \verb{file}
+      \verb Dray2007.pdf:Dray2007.pdf:PDF
+      \endverb
+      \verb{urlraw}
+      \verb http://pbil.univ-lyon1.fr/ade4/article/jss/jss.pdf
+      \endverb
+      \verb{url}
+      \verb http://pbil.univ-lyon1.fr/ade4/article/jss/jss.pdf
+      \endverb
+      \keyw{R-package}
     \endentry
     \entry{Hastie2011}{manual}{}
       \name{author}{1}{}{%
@@ -323,7 +390,11 @@
       \field{howpublished}{[en ligne]}
       \field{langid}{french}
       \field{title}{Recensement général de la population}
+      \field{urlday}{24}
+      \field{urlmonth}{1}
+      \field{urlyear}{2013}
       \field{year}{2008}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb http://www.recensement.insee.fr/accesChiffresCles.action
       \endverb
@@ -331,7 +402,6 @@
       \verb http://www.recensement.insee.fr/accesChiffresCles.action
       \endverb
       \keyw{database}
-      \warn{\item Entry 'DBINSEERGP' (ressources/Bibliotheques/biblio_exemple.bib): Invalid format '24 janvier 2013' of date field 'urldate' - ignoring}
     \endentry
     \entry{Lewin-Koh2011}{manual}{}
       \name{author}{2}{}{%
@@ -374,6 +444,38 @@
       \verb http://CRAN.R-project.org/package=maptools
       \endverb
       \keyw{R-package}
+    \endentry
+    \entry{LOI200611}{legislation}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{alias}{Loi du 5 janvier 2006 d'orientation agricole}
+      \field{booktitle}{Journal officiel de la République française \no5 du 6 janvier 2006}
+      \field{day}{6}
+      \field{howpublished}{[en ligne]}
+      \field{journaltitle}{Journal officiel de la République française}
+      \field{langid}{french}
+      \field{month}{1}
+      \field{texte}{2}
+      \field{title}{Loi \no2006-11 du 5 janvier 2006 d'orientation agricole}
+      \field{urlday}{15}
+      \field{urlmonth}{2}
+      \field{urlyear}{2016}
+      \field{volume}{5}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{229}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://www.legifrance.gouv.fr/eli/loi/2006/1/5/AGRX0500091L/jo/texte
+      \endverb
+      \verb{url}
+      \verb https://www.legifrance.gouv.fr/eli/loi/2006/1/5/AGRX0500091L/jo/texte
+      \endverb
+      \keyw{law}
     \endentry
     \entry{Lozano2008}{book}{}
       \name{author}{1}{}{%
@@ -567,6 +669,45 @@
       \verb http://www.aqui.fr/agricultures/acces-au-foncier-face-au-prix-des-terres-l-innovation-et-la-complementarite-des-outils-est-de-rigueur,15424.html?utm_source=aqui&utm_medium=rss&utm_campaign=06-04-2017
       \endverb
       \keyw{land,SAFER}
+    \endentry
+    \entry{Muggeo2008}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=80693bbc73a63fbb3ca03a64a2693873}{%
+           family={Muggeo},
+           familyi={M\bibinitperiod},
+           given={Vito\bibnamedelimb M.\bibnamedelimi R.},
+           giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{80693bbc73a63fbb3ca03a64a2693873}
+      \strng{fullhash}{80693bbc73a63fbb3ca03a64a2693873}
+      \strng{bibnamehash}{80693bbc73a63fbb3ca03a64a2693873}
+      \strng{authorbibnamehash}{80693bbc73a63fbb3ca03a64a2693873}
+      \strng{authornamehash}{80693bbc73a63fbb3ca03a64a2693873}
+      \strng{authorfullhash}{80693bbc73a63fbb3ca03a64a2693873}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{R News}
+      \field{langid}{english}
+      \field{title}{Segmented R-package : an R package to fit regression models with broken-line relationships}
+      \field{volume}{8/1}
+      \field{year}{2008}
+      \field{pages}{20\bibrangedash 25}
+      \range{pages}{6}
+      \verb{file}
+      \verb Muggeo2008.pdf:Muggeo2008.pdf:PDF
+      \endverb
+      \verb{urlraw}
+      \verb http://cran.r-project.org/doc/Rnews/
+      \endverb
+      \verb{url}
+      \verb http://cran.r-project.org/doc/Rnews/
+      \endverb
+      \keyw{R-package}
     \endentry
     \entry{Pomel2006}{report}{}
       \name{author}{1}{}{%
@@ -788,10 +929,53 @@
       \endverb
       \keyw{software,latex}
     \endentry
+    \entry{Zeiles2002}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=9b2b213ce13e040cff6fc8714922a812}{%
+           family={Zeileis},
+           familyi={Z\bibinitperiod},
+           given={Achim},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=2df5fa9113f59f6da45be87390cb41f4}{%
+           family={Hothorn},
+           familyi={H\bibinitperiod},
+           given={Torsten},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c482b5a4266dff11d88d218861934b49}
+      \strng{fullhash}{c482b5a4266dff11d88d218861934b49}
+      \strng{bibnamehash}{c482b5a4266dff11d88d218861934b49}
+      \strng{authorbibnamehash}{c482b5a4266dff11d88d218861934b49}
+      \strng{authornamehash}{c482b5a4266dff11d88d218861934b49}
+      \strng{authorfullhash}{c482b5a4266dff11d88d218861934b49}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{R News}
+      \field{langid}{english}
+      \field{number}{3}
+      \field{title}{Lmtest R-package: diagnostic checking in regression relationships}
+      \field{volume}{2}
+      \field{year}{2002}
+      \field{pages}{7\bibrangedash 10}
+      \range{pages}{4}
+      \verb{file}
+      \verb Zeiles2002.pdf:Zeiles2002.pdf:PDF
+      \endverb
+      \verb{urlraw}
+      \verb http://CRAN.R-project.org/doc/Rnews/
+      \endverb
+      \verb{url}
+      \verb http://CRAN.R-project.org/doc/Rnews/
+      \endverb
+      \keyw{R-package}
+    \endentry
   \enddatalist
-  \missing{Dray2007}
-  \missing{Muggeo2008}
-  \missing{Zeiles2002}
 \endrefsection
 \endinput
 
