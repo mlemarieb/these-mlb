@@ -22,7 +22,7 @@ Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docp
 
 ## Pré-requis
 
-1. Vous devez disposer d'une distribution TeX. Si vous êtes sous windows, téléchargez [MiKTeX](https://miktex.org/). Si vous êtes sous mac os, téléchargez [MacTeX](http://www.tug.org/mactex/)).
+1. Vous devez disposer d'une distribution TeX. Si vous êtes sous windows, téléchargez [MiKTeX](https://miktex.org/). Si vous êtes sous mac os, téléchargez [MacTeX](http://www.tug.org/mactex/).
 2. Installez un éditeur. Personnellement, je recommande [TeXMaker](http://www.xm1math.net/texmaker/).
 
 Une fois ces pré-requis installés, **copiez l'ensemble du projet en local via le bouton `git clone`, ouvrez dans votre éditeur puis compilez le fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw).** 
