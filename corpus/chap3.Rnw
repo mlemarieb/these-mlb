@@ -1,0 +1,118 @@
+%!TEX encoding = utf8
+\glsresetall
+
+Dans ce chapitre, j'ai inséré des "flottants" à savoir des encadrés courts et longs, une figure, du Ti\textit{k}Z ainsi que des tableaux. Les packages et commandes ont été déclarés dans les fichiers \verb!preambule/floating.tex! et \verb!preambule/dessin.tex!.
+
+Par défaut, les figures sont insérées sur une pleine page (fichier: \verb!preambule/floating.tex!). 
+Dans la légende de la figure \ref{fig:exemple}, j'utilise la commande personnelle \verb!\citetalias! pour citer simplement une base de données. Parfois, on peut avoir besoin d'introduire une figure sur plusieurs pages (voir figure \ref{fig:exemplelong}). On utilise alors la commande \verb!\ContinuedFloat! du package \verb!subfig!. 
+
+J'ai inséré des figures réalisées en Ti\textit{k}Z qui m'avaient particulièrement marquées et que je m'étais réappropriées pour ma thèse. Ces figures ont été réalisées grâce à des partages de scripts de la communauté (voir fichiers du dossier \verb!tikz/!).
+
+Enfin, j'ai inclus des tableaux (tableaux \ref{tab:tabdico} et \ref{tab:tabresume}). Dans la mesure où on peut introduire un grand nombre de variables dans l'analyse, le tableau \ref{tab:tabdico} est par défaut un \verb!longtable!, ce qui lui permet de s'étendre sur plusieurs pages le cas échéant. Mais de petits tableaux tels que le tableau \ref{tab:tabresumecourt} peuvent également être plus simplement utilisés.
+
+\section[Des encadrés]{Une section où sont insérés des encadrés courts et longs}\label{sec:21}
+
+\lipsum[4]
+
+\begin{frameenv}{Un encadré court}{Un encadré court}\label{enc:court}
+\input{encadres/enc_court}
+\end{frameenv}
+
+\lipsum[5]
+
+\lipsum[6]
+
+\lipsum[7]
+
+\begin{frameenv}{Un encadré long}{Un encadré long}\label{enc:long}
+\input{encadres/enc_long}
+\end{frameenv}
+\begin{frameenv*}{}{Un encadré long (suite)}\label{enc:long2}
+\input{encadres/enc_long2}
+\end{frameenv*}
+
+\lipsum[8]
+
+\lipsum[9]
+
+\section[Des figures]{Une section où sont insérés des figures}\label{sec:22}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{pictures/fig_exemple.png}
+\caption[Titre court de la figure]{Titre long de la figure (données: \citetalias{DBINSEERGP,DBGEOFLA}; calculs et représentation graphique: l'auteur)}\label{fig:exemple}
+\end{figure}
+
+\lipsum[10]
+
+\lipsum[11]
+
+\lipsum[12]
+
+\lipsum[13]
+
+\lipsum[14]
+
+\lipsum[15]
+
+\begin{figure}[p]
+\fbox{%
+\includegraphics[page=1,width=0.95\textwidth]{pictures/fig_exemplelong1.png}}
+\caption{Une illustration sur plusieurs pages}
+\label{fig:exemplelong}
+\end{figure}
+\begin{figure}[p]
+\ContinuedFloat % Suite
+\captionsetup{list=no} % Non mentionné dans la liste des figures
+\fbox{%
+\includegraphics[page=2,width=0.95\textwidth]{pictures/fig_exemplelong2.png}}
+\caption{Une illustration sur plusieurs pages (suite)}
+\end{figure}
+
+\lipsum[16]
+
+\lipsum[17]
+
+\lipsum[18]
+
+\lipsum[19]
+
+\section[Un peu de TikZ]{Une section où sont insérés des exemples de figures réalisées en TikZ}\label{sec:23}
+
+\lipsum[18]
+
+\lipsum[19]
+
+\begin{figure}
+\centering
+\input{tikz/tikztensions.tex}
+\caption[Schéma TikZ: tensions]{Schéma TikZ: diagramme tensions (source: l'auteur)}\label{fig:tikztensions}
+\end{figure}
+
+\lipsum[20]
+
+\lipsum[21]
+
+\begin{figure}
+\input{tikz/tikztemps.tex}
+\caption[Schéma TikZ: chronologie]{Schéma TikZ: chronologie (source: l'auteur) 
+\comment{La frise chronologique n'a pas vocation à être exhaustive. Les dates indiquées sont celles mentionnées dans le texte.}}\label{fig:tikztemps}
+\end{figure}
+
+\begin{figure}
+\input{tikz/tikzsources.tex}
+\caption[Schéma TikZ: multi-échelles]{Schéma TikZ: multi-échelles (source: l'auteur)}\label{fig:tikzsources}
+\end{figure}
+
+\lipsum[22]
+
+\lipsum[23]
+
+\section[Des tableaux ]{Des tableaux}\label{sec:24}
+
+\lipsum[24]
+
+\input{sorties/tabresumecourt.tex}
+
+\lipsum[25]
+
+\input{sorties/tabdico.tex}
