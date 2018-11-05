@@ -8,7 +8,7 @@ Dans la légende de la figure \ref{fig:exemple}, j'utilise la commande personnel
 
 J'ai inséré des figures réalisées en Ti\textit{k}Z qui m'avaient particulièrement marquées et que je m'étais réappropriées pour ma thèse. Ces figures ont été réalisées grâce à des partages de scripts de la communauté (voir fichiers du dossier \verb!tikz/!).
 
-Enfin, j'ai inclus des tableaux (tableaux \ref{tab:tabdico} et \ref{tab:tabresume}). Dans la mesure où on peut introduire un grand nombre de variables dans l'analyse, le tableau \ref{tab:tabdico} est par défaut un \verb!longtable!, ce qui lui permet de s'étendre sur plusieurs pages le cas échéant. Mais de petits tableaux tels que le tableau \ref{tab:tabresumecourt} peuvent également être plus simplement utilisés.
+Enfin, j'ai inclus des tableaux (tableaux \ref{tab:tabdico} et \ref{tab:tabresumecourt}). Dans la mesure où on peut introduire un grand nombre de variables dans l'analyse, le tableau \ref{tab:tabdico} est par défaut un \verb!longtable!, ce qui lui permet de s'étendre sur plusieurs pages le cas échéant. Mais de petits tableaux tels que le tableau \ref{tab:tabresumecourt} peuvent également être plus simplement utilisés.
 
 \section[Des encadrés]{Une section où sont insérés des encadrés courts et longs}\label{sec:21}
 
