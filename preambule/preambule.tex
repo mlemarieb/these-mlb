@@ -1,0 +1,54 @@
+% Documentclass definition
+\input{preambule/documentclass.tex}
+
+% Standard packages
+\input{preambule/packages_communs.tex}
+
+% Babel adaptation
+\input{preambule/babel.tex}
+
+% Colors
+\input{preambule/color.tex}
+
+% Page layout definition
+\input{preambule/mise_en_page.tex}
+
+% Loading additional packages from the KOMA-Script family
+\input{preambule/KOMA_script_packages.tex}
+
+% Flottants
+\input{preambule/floating.tex}
+
+% En-tête, pied de page et note 
+\input{preambule/HeaderFooterMarginnote.tex}
+
+% TOC
+\input{preambule/toc.tex}
+
+% Bibliographie
+\input{preambule/biblio.tex}
+
+% Acronymes
+\input{preambule/acro_index.tex}
+
+% Tikz
+\input{preambule/dessin.tex}
+
+% Mathématiques
+\input{preambule/mathematiques.tex}
+
+% Logos
+\input{preambule/logos.tex}
+
+% Optimize paragraphs (avoid overfull... warnings)
+\input{preambule/ParagraphOptimization.tex}
+
+% PDF related packages
+\input{preambule/PDF_related.tex}
+
+% Lipsum
+\usepackage{lipsum}
+
+% Liste des packages appelés
+\listfiles % initialize
+\input{macros/printfilelist.tex}

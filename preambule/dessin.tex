@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%
+%Tikz et dessins
+
+\usepackage{tikz}
+\usetikzlibrary{babel} % Fix conflits with babel
+\usetikzlibrary{quotes} % Fix conflits with csquotes
+\usetikzlibrary{chains} 
+\usetikzlibrary{trees} % utile pour dessiner des mindmaps simples
+\usetikzlibrary{shapes,shapes.multipart,shapes.geometric,shadows}
+\usetikzlibrary{fit,positioning,calc,backgrounds}
+\usetikzlibrary{arrows,decorations,decorations.markings}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{multicol}
+
+\input{macros/frameenv.tex} % macro créant un nouvel environnement flottant de type encadré
+\input{macros/frameenv_star.tex} % macro créant un nouvel environnement flottant de type encadré non numéroté
+
+\setlength{\fboxsep}{1mm}% pour un cadre collé à la fenêtre; on peut même mettre une valeur négative !
+%\setlength{\fboxrule}{}% pour régler l'épaisseur du cadre

@@ -1,0 +1,107 @@
+% Mathématiques et statistiques
+
+\newcommand{\na}{{\footnotesize NA}}% Valeurs manquantes
+\newcommand{\nodata}{\textcolor{gray}{--}}% Pas de données
+\newcommand{\secret}{s}% secret statistique
+
+\usepackage{siunitx} % unités de mesure
+\sisetup{%
+  locale = FR, % conventions françaises
+  zero-decimal-to-integer = true,% Si valeur nulle, alors écrire 0 seulement
+  text-sf=\sffamily\sansmath,
+  detect-family=true % nécessaire pour identifier les changements de font
+}
+
+\DeclareSIUnit{\ph}{pH}
+\DeclareSIUnit{\euros}{\text{\euro}}
+
+%*% Restreindre la notation scientifique aux très grands et très petits nombres
+% source: http://tex.stackexchange.com/questions/111670/scientific-notation-only-for-large-numbers
+\usepackage{expl3}% base layer of LaTeX3
+\ExplSyntaxOn
+    \cs_new_eq:NN \fpcmpTF \fp_compare:nTF
+\ExplSyntaxOff
+% Définition des seuils
+\newcommand*{\ThresholdLowC}{100}
+\newcommand*{\ThresholdLowU}{1}
+\newcommand*{\ThresholdLowa}{0.1}
+\newcommand*{\ThresholdLowb}{0.01}
+\newcommand*{\ThresholdLowc}{0.001}
+\newcommand*{\ThresholdLow}{0.0001}
+\newcommand*{\ThresholdHigh}{1000000000}
+% Reformattage de la commande num
+\let\OldNum\num%
+\renewcommand*{\num}[2][]{%
+    \fpcmpTF{abs(#2)>\ThresholdHigh}{%
+            \OldNum[scientific-notation=true,
+            exponent-product = \cdot,
+            round-mode = figures,
+            round-precision = 3,
+            #1]{#2}%
+        }{%
+            \fpcmpTF{abs(#2)<\ThresholdLow}{%
+            \OldNum[%scientific-notation=true % au choix
+            round-mode = places,
+            round-precision = 3,
+            round-minimum = 0.0001,#1]{#2}%
+        }{%
+            \fpcmpTF{abs(#2)>=\ThresholdLowC}{%
+            \OldNum[%scientific-notation=true % au choix
+            round-mode = places,
+            round-precision = 0,
+            #1]{#2}%
+        }{%
+            \fpcmpTF{abs(#2)>=\ThresholdLowU}{%
+            \OldNum[%scientific-notation=true % au choix
+            round-mode = places,
+            round-precision = 1,
+            #1]{#2}%
+        }{%
+            \fpcmpTF{abs(#2)>=\ThresholdLowb}{%
+            \OldNum[scientific-notation=false,
+            round-mode = places,
+            round-precision = 2,
+            #1]{#2}%
+        }{%
+            \fpcmpTF{abs(#2)>=\ThresholdLowc}{%
+            \OldNum[scientific-notation=false,
+            round-mode = places,
+            round-precision = 3,
+            #1]{#2}%
+        }{%
+          \OldNum[%scientific-notation=true % au choix
+          round-mode = places,
+          round-precision = 4,
+          #1]{#2}%
+        }%
+        }%
+        }%
+        }%
+        }%
+    }%
+}%
+% Reformattage de la commande SI
+\let\OldSI\SI%
+\renewcommand*{\SI}[3][]{%
+    \fpcmpTF{abs(#2)<=\ThresholdLow}{%
+        \OldSI[scientific-notation=true,#1]{#2}{#3}%
+    }{%
+        \fpcmpTF{abs(#2)>=\ThresholdHigh}{%
+            \OldSI[scientific-notation=true,#1]{#2}{#3}%
+        }{%
+            \OldSI[scientific-notation=false,#1]{#2}{#3}%
+        }%
+    }%
+}%
+% Fin
+
+\usepackage{amsfonts} % Polices mathématiques
+\usepackage{amssymb} % Symboles mathématiques
+\usepackage{amsmath} % Equations et langage maths
+\DeclareMathOperator{\e}{e}
+\usepackage[EULERGREEK]{sansmath}%Pour obtenir le sans serif en mode math
+
+% \setcounter{equation}{-1} % Premier numéro de l'équation
+
+\newcommand{\var}[1]{{\MakeUppercase{#1}}}% Noms de variables: ATTENTION small caps n'accepte pas les font sans serif
+\def\dispfrac{\displaystyle\frac} % redéfinition des fractions (style plus aéré)

@@ -1,0 +1,58 @@
+\pdfminorversion=4
+\pdfobjcompresslevel=7
+\pdfcompresslevel=9
+
+%%%%%%%%%%%%%%%%
+% Encodages, langues et fonts
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[english,french]{babel} % dans cet ordre, le français est défini comme la langue principale du document (documentation babel)
+% Guillemets
+\usepackage[
+autostyle=true,
+french=quotes,
+maxlevel=3]{csquotes}
+\MakeOuterQuote{"} % citation externe
+\frenchspacing
+\usepackage{lmodern}% Font
+\usepackage{microtype} % typographie, recommandé avec pdflatex [stretch=10,shrink=10]
+% \usepackage[np]{numprint}
+\newcommand\fontcorrigee[1]{{\fontfamily{cmr}\selectfont #1}}
+
+%%%%%%%%%%%%%%%%
+% Sweave et programmation
+\usepackage[noae]{Sweave}% le package ae doit être désactivé si je veux afficher les guillemets
+\usepackage{filecontents}
+\usepackage{xifthen}
+\usepackage{xstring}
+\usepackage{etoolbox}
+% \usepackage{chngcntr}
+\usepackage{newfloat} % créer de nouveaux environnements comme des encadrés (voir partie tikz)
+\usepackage{suffix} % commande WithSuffix
+\usepackage{l3regex} % expressions régulières
+\usepackage{xparse}
+
+%%%%%%%%%%%%%%%%
+% Mise en forme
+
+% Date
+\usepackage[ddmmyyyy]{datetime} % Format de la date
+
+% Symboles supplémentaires
+\usepackage{marvosym} % pictogrammes tel que l'éclair utilisé dans tikz (à charger avant eurosym)
+\usepackage{eurosym} % symboles monétaires
+\usepackage[super]{nth} % exposants anglais
+\usepackage{hologo} % logos TeX (nécessaire pour pouvoir mobiliser ces logoso dans des def)
+\usepackage{pifont} % ornements
+\usepackage{phaistos} % symboles anciens
+
+% Mise en forme du texte
+% \usepackage{fancyvrb} % Verbatim
+\newcommand{\latin}[1]{\textit{#1}} % Expressions latines
+\newcommand{\etran}[1]{\textit{#1}} % Expressions étrangères
+
+% Better support for ragged left and right. Provides the commands \RaggedRight and \RaggedLeft. 
+% Standard LaTeX commands are \raggedright and \raggedleft
+% http://www.ctan.org/pkg/ragged2e
+\usepackage{ragged2e}

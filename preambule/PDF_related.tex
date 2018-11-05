@@ -1,0 +1,34 @@
+%%% File encoding is utf8
+
+\usepackage[final]{pdfpages} 
+
+% Package for PDF features such as bookmarks and hyperlinks. 
+% Important: Should be loaded at the end.
+% CTAN: http://www.ctan.org/pkg/hyperref
+\usepackage[%
+            bookmarks, % Create bookmarks
+            bookmarksopen=true, % Unfold bookmatk tree in PDF viewer when document is opened
+            bookmarksopenlevel=3, % Level of unfolding
+            bookmarksnumbered=true, % Number bookmarks
+            bookmarksdepth=6,
+            hidelinks, % do not highlight hyperlinks -- looks ugly
+            pdfpagelabels=true, % See manual...
+            plainpages=false, % See manual...
+            hyperfootnotes=true, % Hyperlinks for footnotes
+            hyperindex=true, % Index
+            linktocpage=true, % dans le toc et les lot et lof, liens sur les pages et non le texte
+            colorlinks=true, % Version couleur: Colorise les liens.
+            breaklinks=true, % Permet le retour à la ligne dans les liens trop longs.
+            urlcolor= bluesobre, % Couleur des hyperliens.
+            linkcolor= bluesobre, % Couleur des liens internes.
+            citecolor=bluesobre, % Couleur des références biblio.
+%            pdftitle={these},
+%            pdfauthor={Auteur},
+%            pdfsubject={Titre de la thèse},
+%            pdfkeywords={mot-clé1, mot-clé2, mot-clé3, mot-clé4},
+            pdfproducer={latex},
+            pdfcreator={pdflatex}
+            ]{hyperref}
+            
+\usepackage{bookmark} % after hyperref
+\urlstyle{sf}

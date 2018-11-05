@@ -1,0 +1,64 @@
+%%%%%%%%%%%
+% Mise en page
+
+% User friendly interface to change layout parameters
+% CTAN: http://www.ctan.org/pkg/geometry
+\usepackage{geometry}
+\geometry{% siehe geometry.pdf (Figure 1)
+  top=25mm,
+	bottom=25mm,
+	showframe=false, % For debugging: try true and see the layout frames
+	margin=25mm,
+	marginparsep=0mm,
+	headsep=1cm,
+	footskip = \dimexpr\headsep+\ht\strutbox\relax,
+	marginparwidth=15mm%à modifier
+}
+
+\reversemarginpar % nécessaire dans le cas où l'option twoside est vraie
+
+%%%%%%%%%%%
+% Paragraphes
+
+\usepackage{setspace} % interlignage global (modifié pour les environnements frameenv, tabularx et longtable)
+\setstretch{1.125}
+
+\input{macros/vcenterpage.tex} % Macro de nouvelle commande : permettant de centrer un texte en milieu de page (verticalement)
+\input{macros/centerpage.tex} % Macro de nouvelle commande : permettant de centrer un texte verticalement
+
+\makeatletter%
+\@ifclassloaded{scrbook}%
+  {\input{macros/abstractbook.tex}}%
+  {}%
+\makeatother%
+
+\RedeclareSectionCommands[
+  afterskip=1sp
+]{paragraph,subparagraph}
+
+%%%%%%%%%%%
+% Autres packages
+
+\usepackage{pdflscape} % Paysage
+
+\usepackage{enumitem} % personnalisation des listes enumerate, itemize (utilisé notamment pour modifier les puces)
+% \setlist{nosep,after=\vspace{\baselineskip}} % pour avoir un espace après itemize
+
+\usepackage{epigraph}
+\setlength{\epigraphwidth}{0.5\textwidth}
+\setlength{\epigraphrule}{0pt}
+
+% %%%%%%%%%%%
+% Style des chapitres
+
+\usepackage[usestackEOL]{stackengine}
+
+%\RedeclareSectionCommand[beforeskip=2cm,afterskip=2cm]{chapter}
+
+\makeatletter%
+\@ifclassloaded{scrbook}%
+  {\definecolor{numbercolor}{gray}{0.7}
+\renewcommand*{\chapterformat}{\mbox{\chapappifchapterprefix{\nobreakspace}\scalebox{3}{\selectfont\color{numbercolor}\thechapter}\enskip}}
+}%
+  {}%
+\makeatother%

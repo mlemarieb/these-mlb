@@ -1,0 +1,204 @@
+
+%%%%%%%%%%%%%%%%
+  % Bibliographie
+
+\usepackage[style= authoryear-comp, % Style des citations; dans le texte : (Auteur 1, Année, Année ; Auteur 2 Année)
+            natbib=true, % compatibilité avec le package natbib
+            autolang=other, % différence avec other* ?
+            hyperref, % compatibilité avec le package hyperref
+            backref, % dans les bibliographies : liens avec les numéros de page où la référence est citée
+            backrefstyle=all+,%
+            bibencoding=inputenc,
+            datamodel=complete-dm,
+            abbreviate=false, % abbréviation
+            pagetracker=true,
+            citecounter=true,
+            citereset=subsection,
+            url=true, % afficher les url
+            isbn=false,doi=false,eprint=false,
+            giveninits=true, % Tous les prénoms en initiales % firstinits deprecated
+            uniquename=init,  % this option is compatible with firstinits
+            uniquelist=false,
+            maxcitenames=2,% 2 auteurs listés max lors d'une citation
+            maxbibnames=99, %% liste complète des auteurs en biblio
+            mergedate=basic, % si la date spécifiée et la date en label sont identiques, les fusionner pour éviter des répétititions: basic
+            %datelabel=comp, % 
+            date=long,
+            urldate=short,
+            dateabbrev=false,
+            backend=biber % indispensable pour faire fonctionner biber
+            ]{biblatex}
+\bibliography{ressources/Bibliotheques/biblio_exemple,}
+
+% filtre
+% Déclarations des filtres
+\defbibfilter{filtrescience}{% Déclaration du filtre documents scientifiques
+( type=article or type=incollection or type=inproceedings or type=book  or type=thesis or type=inbook or type=proceedings or type=unpublished or type=report ) and ( not keyword={software} ) and ( not keyword={R-package} )  and ( not keyword={institution report} )  and ( not keyword={statistic report} )} % bien mettre chaque critère entre deux espaces et attention : thesis et non phdthesis 
+\defbibfilter{filtrescience_book}{% Déclaration du filtre documents scientifiques
+( type=book or type=inbook ) and ( not keyword={software} ) and ( not keyword={R-package} )  and ( not keyword={institution report} )  and ( not keyword={statistic report} )} % bien mettre chaque critère entre deux espaces et attention : thesis et non phdthesis 
+\defbibfilter{filtrescience_art}{% Déclaration du filtre documents scientifiques
+( type=article or type=thesis or type=inproceedings or type=proceedings ) and ( not keyword={software} ) and ( not keyword={R-package} )  and ( not keyword={institution report} )  and ( not keyword={statistic report} )} % bien mettre chaque critère entre deux espaces et attention : thesis et non phdthesis 
+\defbibfilter{filtrerapport}{% Déclaration du filtre rapports institutionnels
+( keyword={institution report} ) and ( not keyword={software} ) and ( not keyword={R-package} )}% bien mettre chaque critère entre deux espaces
+\defbibfilter{filtreoutils}{% Déclaration du filtre logiciels et packages
+( keyword=R-package  or  keyword=software )}% bien mettre chaque critère entre deux espaces
+\defbibfilter{filtrelegislatif}{% Déclaration du filtre logiciels et packages
+( keyword=law )}% bien mettre chaque critère entre deux espaces
+
+% Déclaration de l'en-tête principal
+\makeatletter%
+\@ifclassloaded{scrbook}%
+  {\defbibheading{ref}{
+\chapter*{Références}
+\markboth{Références}{Références}}
+}%
+  {\defbibheading{ref}{
+\section*{Références}
+\markboth{Références}{Références}}
+}%
+\makeatother%
+
+% Augmenter l'espace vertical entre les références
+\setlength\bibitemsep{0.5ex}
+\setlength\bibnamesep{1.2ex}
+
+% Déclaration des nouvelles entrées et nouveaux champs 
+\begin{filecontents}{complete-dm.dbx}
+%Legislation
+\DeclareDatamodelFields[type=field,datatype=literal,skipout=false]{texte}
+%Database
+\DeclareDatamodelEntrytypes{database}
+\DeclareDatamodelFields[type=field,datatype=literal,skipout=false]{alias}
+\DeclareDatamodelFields[type=field,datatype=literal,skipout=false]{datacover}
+\DeclareDatamodelFields[type=field,datatype=literal,skipout=false]{dataedition}
+\DeclareDatamodelEntryfields[database]{author,title,howpublished,url,urldate,datacover,dataedition}
+\end{filecontents}
+
+%% Nettoyage des entrées
+%% Supprimer les champs inutiles pour tous les types
+ \AtEveryBibitem{%
+  \clearfield{comment}%
+  \clearlist{organization}%
+  \clearfield{review}%
+  \clearfield{abstract}%
+}
+%% Supprimer les champs inutiles pour tous les types SAUF pour le type book et incollection
+ \AtEveryBibitem{%
+  \ifentrytype{book}{}{%
+  	\ifentrytype{incollection}{}{%
+    		\ifentrytype{report}{}{%
+      		\ifentrytype{inproceedings}{}{\clearfield{address}}%
+}}}}
+%%% Si je veux afficher les url : nettoyage préalable
+ \AtEveryBibitem{%
+  \ifentrytype{online}{}{%
+  \ifentrytype{database}{}{%
+    \ifentrytype{legislation}{}{%
+  		\ifentrytype{article}{%
+ 			\iffieldundef{howpublished}{% Si papier
+   			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}%
+    			\clearfield{url}}{%
+    			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}}}{%SI ce n'est pas un article
+ 		 \ifentrytype{incollection}{%
+  			\iffieldundef{howpublished}{% Si papier
+    			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}%
+    			\clearfield{url}}{%
+    			\clearfield{month}%
+   			 \clearfield{note}%
+   			 \clearfield{day}}}{%SI ce n'est pas un incollection
+ 		 \ifentrytype{book}{%
+  			\iffieldundef{howpublished}{% Si papier
+   			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}%
+    			\clearfield{url}}{%
+    			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}}}{%SI ce n'est pas un book 
+ 		\ifentrytype{report}{%
+  			\iffieldundef{howpublished}{% Si papier
+    			\clearfield{month}%
+   			\clearfield{note}%
+    			\clearfield{day}%
+    			\clearfield{url}}{%
+    			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}}}{%SI ce n'est pas un report 
+  		\ifentrytype{inproceedings}{%
+  			\iffieldundef{howpublished}{% Si papier
+    			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}%
+    			\clearfield{url}}{%
+    			\iffieldequalstr{howpublished}{[cd-rom]}{%
+    			\clearfield{month}%
+    			\clearfield{note}%
+    			\clearfield{day}%
+    			\clearfield{url}}{}{%Si non cd-rom
+    			\clearfield{month}%
+    			\clearfield{day}}}%
+    			\clearfield{note}}{%SI ce n'est pas un inproceedings 
+    		\ifentrytype{newspaper}{%
+    			\iffieldequalstr{howpublished}{[en ligne]}{%
+    			\clearfield{note}}{%
+    			\clearfield{url}%  
+    			\clearfield{urldate}}}{% Si rien de tout ça
+    \clearfield{note}%
+    \clearfield{month}%
+    \clearfield{day}%
+    \clearfield{url}%  
+    \clearfield{howpublished}
+    \clearfield{urldate}
+  }}}}}}}}}}%
+
+% Paramétrage valable pour tous les typesentrées
+% \DeclareLabeldate{%
+%   \field{date}
+%   \field{eventdate}
+%   \field{origdate}
+%   \field{urldate}
+%   \literal{nodate}
+% }
+\DeclareNameAlias{sortname}{last-first}% Afficher tous les auteurs en Lastname-Firstname
+\DeclareFieldFormat{pagetotal}{\mkpagetotal[bookpagination]{#1~pages}}% Keep abbreviations in general, but use "pages" to format the `pagetotal` field
+\DeclareFieldFormat{edition}{\ifinteger{#1}{\mkbibordedition{#1}\addthinspace{}ed.}{#1\isdot}}% réduction des espaces 
+% \DeclareFieldFormat{howpublished}{\textbf{#1}}
+\DefineBibliographyStrings{french}{%
+%  backrefpage = {cité page},
+%  backrefpages= {cité pages},
+urlseen = {dernier accès le},}
+\DefineBibliographyStrings{english}{urlseen = {last access:},}
+\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}%Fix citet
+
+% Paramétrages spécifiques
+\DeclareFieldFormat[article]{number}{(#1)}% number of a journal
+\DeclareFieldFormat[legislation]{texte}{texte \no{#1}}
+\DeclareFieldFormat[legislation]{volume}{#1}
+\DeclareFieldFormat[legislation]{title}{\normalfont #1}
+\DeclareFieldFormat[newspaper]{title}{\mkbibquote{#1\isdot}}  % Définir l'affichage du titre d'un article de presse
+
+% Nouvelles commandes de citations
+\DeclareCiteCommand{\citetalias}% Citer des alias : BD
+  {\booltrue{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexfield{indextitle}}
+     {}%
+   \printtext[bibhyperref]{\printfield[alias]{alias}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\citepalias}[\mkbibparens]% Citer des alias : (BD)
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \printtext[bibhyperref]{\printfield[alias]{alias}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\input{macros/mybibstyle.tex} % Personnalisation du style bibliographique authoryear-comp

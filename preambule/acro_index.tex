@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%%
+  % Acronymes et glossaire
+
+\usepackage[
+  nonumberlist, %do not show page numbers
+  %numberedsection, % Numéroté dans le TOC
+  % toc,          %show listings as entries in table of contents
+  % section,      %use section level for toc entries
+  %nogroupskip,
+  %smallcaps, % ATTENTION small caps n'accepte pas les font sffamily
+  nopostdot, % pas de point à la fin du libellé
+  acronym      %generate acronym listing
+  ]
+{glossaries}
+\renewcommand*{\glspostdescription}{} %Remove the dot at the end of glossary descriptions
+\input{macros/myacronymstyle.tex}
+\setglossarystyle{mylist} 
+\glsdisablehyper % désactive tous les liens hypertextes des acronymes
+\makeglossaries %Activate glossary commands
+\input{ressources/Glossaire/glossaireFR.tex} % Glossaire avec définition
+
+%%%%%%%%%%%%%%%%
+% Index
+
+\usepackage{makeidx}
+\makeindex

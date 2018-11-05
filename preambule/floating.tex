@@ -1,0 +1,59 @@
+\usepackage{graphicx} % Figures % Option [draft]
+\graphicspath{{sorties/}} % Chemin* des figures  (cartes créées sous R) appelées avec la commande includegraphics
+
+\setkomafont{caption}{\small\normalfont\sffamily}
+\setkomafont{captionlabel}{\usekomafont{caption}}
+\setkomafont{descriptionlabel}{\normalfont\sffamily}
+
+% Extended support for captions of figures and tables etc.
+% CTAN: http://www.ctan.org/pkg/caption
+\usepackage{caption}[2008/08/24]% permet d'utiliser continuedfloat (notamment pour frameenv) et la commande \\ dans caption
+\usepackage{subcaption}
+\captionsetup[subtable]{position=auto}
+
+\newcommand{\comment}[1]{ -- #1}
+
+% Default position of figure and table
+\makeatletter
+\renewcommand{\fps@figure}{!p}
+\renewcommand{\fps@table}{!htb}
+\makeatother
+
+\setcounter{totalnumber}{1}
+\renewcommand{\floatpagefraction}{.1}%(default 0.5)
+
+\setlength{\intextsep}{30pt plus 2pt minus 4pt} % séparation ds flottants situés dans un texte (default 12pt plus 2pt moins 4pt)
+
+\input{macros/centerfloat.tex}% Macro permettant de centrer automatiquement tous les flottants
+
+%%%%%%%%%%%%%%%%   
+% Tableaux
+
+\usepackage{tabularx} % Ajustement automatique des colonnes spécifiées
+\renewcommand\tabularxcolumn[1]{m{#1}}% personnalisation de la colonne X spécifique à tabularx
+
+\usepackage{longtable} % Tableaux longs sur plusieurs pages
+
+\usepackage{dcolumn} % Lignes multi colonnes
+% \usepackage{multirow} % Colonnes multi lignes
+
+\usepackage{array}% esthétique des tableaux: création de nouveau types de colonnes
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}} % largeur fixe, alignement à droite
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}} % largeur fixe, alignement à gauche
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}} % largeur fixe, alignement centre
+\setlength\tabcolsep{.011\textwidth} % Equivalent au 6pt par défaut, nécessaire pour longtable, imposé à tous les tableaux pour harmonisation (0.01007937). Pour chaque entre-colonne, compter deux tabcolsep
+
+\usepackage{colortbl} % esthétique des tableaux: colorier cellules/lignes/colonnes de tableaux
+
+\usepackage{booktabs} % esthétique des tableaux: toprule,midrule,cmidrule, addlinespace
+\setlength{\defaultaddspace}{0.4em} % addlinespace defaut, utilisé avant notes de tableaux
+\newcommand{\notelinespace}{\addlinespace[0.3em]}
+\newcommand{\footnotelinespace}{\addlinespace[0.7em]}
+
+\usepackage[normal]{threeparttable} %esthétique des tableaux: notes intra tableau
+\appto\TPTnoteSettings{\footnotesize\normalfont\sffamily\sansmath}
+
+\AtBeginEnvironment{tabularx}{\footnotesize\normalfont\sffamily\sansmath} % pas de \singlespacing dans tabularx, tabularx n'est pas affecté par setspace, de plus ajouter singlespacing conduit à des comportements hasardeux de caption
+\AtBeginEnvironment{tabular}{\footnotesize\normalfont\sffamily\sansmath} % idem, pas de \singlespacing dans tabular
+\AtBeginEnvironment{tabular*}{\footnotesize\normalfont\sffamily\sansmath} % idem, pas de \singlespacing dans tabular
+\AtBeginEnvironment{longtable}{\footnotesize\normalfont\sffamily\sansmath}

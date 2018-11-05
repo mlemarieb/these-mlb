@@ -1,0 +1,53 @@
+%%% File encoding is ISO-8859-1 (also known as Latin-1)
+%%% You can use special characters just like ä,ü and ñ
+
+% ##############################################
+%Footnotes
+% \usepackage[multiple]{footmisc}
+
+% ##############################################
+% Margin notes
+
+% Custom command fpr the margin notes: \myMarginnote{Your Text}
+% Comment on the \lineskiplimit=-\maxdimen:
+% See http://tex.stackexchange.com/questions/49072/
+% Without it the line spacing of the normal text was changed (ugly).
+\newcommand{\myMarginnote}[1]{%
+	\marginnote{% needs marginnote package
+		\ifthispageodd{\RaggedRight}{\RaggedLeft}% needs ragged2e package
+		\color{colpatri}%
+		\lineskiplimit=-\maxdimen% 
+		\normalfont\sffamily\scriptsize%
+		#1}%
+}
+
+% ##############################################
+% Box notes
+\newcommand{\myBoxnote}[1]{%
+\fcolorbox{champagne}{champagne}{%cadre,fond
+\begin{minipage}{\linewidth}
+#1
+\end{minipage}}}
+
+% ##############################################
+% Header and Footer Customization
+
+% KOMA-Script code for header and footer font
+
+\setkomafont{pageheadfoot}{%
+	\normalfont\sffamily\bfseries
+	}
+\setkomafont{pagenumber}{%
+	\normalfont\sffamily
+	}
+	
+%% Deprecated
+% \setheadwidth[0pt]{textwithmarginpar}%width of header
+%\setheadsepline{0.4pt} %width of header line
+%\setfootwidth[0pt]{text}%width of footer
+%\setfootsepline[text]{0pt}%with of footer line (here: no line)
+
+\clearpairofpagestyles% removes the default content of header and footer
+\cfoot[\pagemark]{\pagemark}
+\lehead{\headmark}
+\rohead{\headmark}

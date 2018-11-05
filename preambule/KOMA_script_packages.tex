@@ -1,0 +1,24 @@
+%%% File encoding is utf8
+
+% Special KOMA-Script package - I added it because I also use the float package in this template, see: 
+% http://tex.stackexchange.com/questions/51867/koma-warning-about-toc
+% CTAN: http://www.ctan.org/tex-archive/macros/latex/contrib/koma-script/doc
+\usepackage{scrhack}
+
+% Better support for marginnotes
+% new command: \marginnote
+% LaTeX standard command: \marginpar
+% CTAN: http://www.ctan.org/pkg/marginnote
+\usepackage{marginnote}
+
+% % Extended header and footer support
+% % CTAN: http://www.ctan.org/pkg/scrpage2
+\usepackage[automark,
+            headsepline=0.4pt,
+            headwidth=textwithmarginpar,
+            markcase=noupper]{scrlayer-scrpage}
+            
+%% ATTENTION small caps n'accepte pas les font sffamily
+
+\usepackage[tocindentauto]{tocstyle}
+\usetocstyle{classic}
