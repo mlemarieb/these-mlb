@@ -2,6 +2,8 @@
 
 Je partage ici (pour l'instant en français) le template qui a servi à la rédaction de mon manuscrit de thèse en économie (pour voir un exemple de résultat final, je vous invite à consulter la page https://tel.archives-ouvertes.fr/tel-01514178/document). 
 
+## Structure du projet
+
 Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw) qui renvoie ensuite à des fichiers organisés en plusieurs dossiers. 
 
 * [preambule](/preambule/): packages et options du document
