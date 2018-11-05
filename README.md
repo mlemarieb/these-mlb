@@ -2,7 +2,8 @@
 
 Je partage ici le template qui a servi à la rédaction de mon manuscrit de thèse (pour voir le résultat final, je vous invite à consulter la page http://www.theses.fr/2016BORD0412). 
 
-Ce template se compose d'un fichier maître these_docprincipal.tex qui renvoie ensuite à des fichiers organisés en plusieurs dossiers. 
+Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw) qui renvoie ensuite à des fichiers organisés en plusieurs dossiers. 
+
 * [preambule](/preambule/): packages et options du document
 * [config](/config/): fichiers .sty idnsipensables à l'exécution de certains packages tels que sweave
 * [macros](/macros/): macros personnelles
@@ -16,7 +17,7 @@ Ce template se compose d'un fichier maître these_docprincipal.tex qui renvoie e
 * [appendix](/appendix/): annexes du document
 * [build](/build/): fichiers produits lors de la compilation
 
-Copiez l'ensemble du projet en local puis compilez le fichier maître [these_docprincipal.tex](/these_docprincipal.tex). 
+Copiez l'ensemble du projet en local puis compilez le fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw). 
 
 ## Compilation win
 
@@ -41,3 +42,7 @@ Si vous utilisez mac os et la distribution MacTeX, vous devez exécuter les comm
 "/usr/texbin/makeindex" build/%.idx | 
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
 "/usr/texbin/biber" build/%  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex 
+
+## Encodage
+
+L'ensemble des documents sont codés en UTF-8. L'encodage doit être déclaré en préambule (voir le fichier [preambule/packages_communs.tex](preambule/packages_communs.tex) et lors de l'exécution de la commande `sweave`. 
