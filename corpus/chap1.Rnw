@@ -1,0 +1,56 @@
+%!TEX encoding = utf8
+\glsresetall % réinitialisation des acronymes
+
+\section[Titre court de la section 1]{Un exemple de titre long de la section 1 du chapitre 1}\label{sec:11}
+
+\subsection{Sous-section 1 de la section 1}
+
+Enumerer:
+\begin{enumerate}
+\item objet;
+\item objet;
+\item objet.
+\end{enumerate}
+
+Lister:
+\begin{itemize}
+\item objet;
+\item objet;
+\item objet.
+\end{itemize}
+
+\subsubsection{Sous-sous-section 1 de la section 1}
+
+\paragraph{Paragraph}
+
+\paragraph{Paragraph}
+
+\subsubsection{Sous-sous-section 2 de la section 1}
+
+\subsection{Sous-section 2}
+
+\section[Des commandes dans le corps du texte]{Des commandes à garder en tête lors de l'écriture qui faciliteront grandement la mise en forme finale.
+}\label{sec:12}
+
+\subsection{Citations avec natbib et extraits}
+
+J'utilise ici le package \verb!natbib! et les commandes \verb!\citet! pour citer au format "Auteur (Année)" tel que \citet{Anselin1990}, \verb!\citep! pour citer au format "(Auteur, Année)" tel que \citep{Holloway2007}, ou \verb! \citep[p.~12]!  pour citer un auteur et une page associée tel que \citep[p.~12]{Margeon2009}. 
+
+J'ai particulièrement personnalisé le formatage de ma bibliographie : allz voir le fichier  \verb!preambule/biblio.tex! ainsi que les fichiers \verb!macros/bibdriver_*.tex!. 
+Cela me permet de citer des livres \citep{Margeon2009,Boulay2013}, des articles de revues scientifiques  \citep{Anselin1990,Holloway2007}, des rapports institutionnels \citep{Pomel2006,Roumegoux2008}, des articles de journaux \citep{AQUI20170405,LAVIGNE20130531} ou encore des bases de données \citep{DBGEOFLA,DBINSEERGP} selon mes besoins.
+
+Notez que pour citer un extrait, on a recours parfois aux ellipses, \LaTeX{} a prévu une commande à cette fin \verb!\textellipsis! : "blablabla [\textellipsis] blablabla".
+
+\subsection{Renvois et notes de bas de page}
+
+Utiliser des renvois en notes de bas de page \footnote{Une note de bas de page}. Indiquer un lien vers un site \url{https://www.latex-project.org/} avec la commande \verb!\url!.
+
+Faire référence: à des figures (figure \ref{fig:exemple}), à des pages  (voir figure \ref{fig:tikztemps} en page \pageref{fig:tikztemps}), à des tableaux (tableau \ref{tab:tabresumecourt}), à des sections (section \ref{sec:11}). 
+
+\subsection{Acronymes avec Glossary}
+
+Utiliser un acronyme une première fois dans le chapitre : \gls{SIG}. Utiliser une seconde fois ce même acronyme dans ce chapitre: \gls{SIG}. Utiliser cet acronyme au pluriel: \glspl{SIG}. Utiliser d'autres acronymes : \gls{GIS}, \gls{SEM}, \gls{IGN}, \gls{INSEE} qui seront ensuite repris dans la \hyperref[list:acro]{liste des acronymes} en fin de document. Certains acronymes sont associés à une définition, qui est reportée dans le \hyperref[list:gloss]{glossaire} également en fin de document.  
+
+\subsection{Ponctuations, emphases et mots étrangers}
+
+Ecrire des points de suspension\dots avec \verb!\dots!, renvoyer au 20\ieme siècle avec \verb!\ieme!, mettre en \emph{emphase} avec \verb!\emph!. J'ai ajouter des commandes personnelles telles que \verb!\latin! pour les locutions latines \latin{etc.} et \verb!\etran! pour les mots étrangers \etran{Hello !}

@@ -1,0 +1,23 @@
+%!TEX encoding = utf8
+
+Je partage ici le \etran{template} qui a servi à la rédaction de mon manuscrit de thèse. Ce document est avant tout une sorte de patron à la rédaction d'un document long. Ce n'est pas un ouvrage dédié à \LaTeX{} même si je rappelle dans le corps du texte quelques commandes qui m'ont été très utiles. 
+
+\begin{figure}
+\renewcommand{\thefigure}{I.\arabic{figure}}
+\includegraphics[width=\textwidth]{pictures/fig_intro.png}
+\caption[Titre alpha court de la figure]{Titre alpha long de la figure -- avec un commentaire (source: \citetalias{DBGEOFLA})}\label{fig:intro}
+\end{figure}
+
+\section*{Classe de document et packages}
+
+J'uilise ici la classe de document \verb!scrbook! de \verb!KOMA-script!. Pour en savoir plus, allez lire le document suivant très complet \url{https://framabook.org/docs/komascript/KOMAScript_Framaboook_LPPL.pdf}. Les packages \emph{principaux} qui sous-tendent ce document sont \verb!sweave!, \verb!siunitx!, \verb!tikz!, \verb!glossary!, \verb!biblatex! associé à \verb!natbib!, et \verb!hyperref!. L'ensemble des packages et éléments de configuration sont rassemblés dans le dossier \verb!preambule!. Pour connaitre la liste exhaustive des packages appelés, vous pouvez consulter le fichier \verb!build/these_docprincipal.log!. Notez que certains packages sont spécifiques à \verb!KOMA-script!. 
+
+\section*{Au sujet des métadonnées}
+
+Notez que le package \verb!hyperref! permet de spécifier les métadonnées du fichier (auteur, nom du fichier, sujet, mots-clés). N'oubliez pas de modifier ces dernières dans les fichiers \verb!pagedegarde.tex! et \verb!preambule/PDF_related.tex!. 
+
+\section*{Autre titre non numéroté de l'introduction}
+
+Pour obtenir une introduction suffisamment longue et ainsi avoir une idée de la mise en page, introduisons dorénavant un peu de \latin{lipsum}.
+
+\lipsum[3-4]

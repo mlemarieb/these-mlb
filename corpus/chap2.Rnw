@@ -1,0 +1,38 @@
+%!TEX encoding = utf8
+\glsresetall
+
+Pour toute la partie mathématique, j'invite le lecteur à explorer le fichier \verb!preambule/mathematiques.tex!.
+
+\section{Des commandes pour une mise en forme mathématique automatique}\label{sec:31}
+
+A l'instar du chapitre \ref{chap:1}, il peut être intéressant de définir des commandes de mise en forme automatique. J'ai fait le choix par exemple de créer les commandes personnelles. Pour citer des variables dans le corps de texte, j'utilise \verb!\var!qui formate automatiquement les noms de variables: par exemple,  \var{Sepal.Length}, \var{Species}. Les commandes \verb!\na!, \verb!\nodata! et \verb!\secret! permettent de leur côté de formater des valeurs soit manquantes (l'équivalent du NA), soit inexistantes (l'équivalent du NULL), soit tues pour des raisons de secret statistique. 
+
+Pour formater automatiquement des nombres ou des unités dans le texte (ici normes françaises), on  utilise le package \verb!siunitx!:  \SI{10000}{\hectare} (commande \verb!\SI!), \num{24.14} (commande \verb!\num! pour un nombre sans unité), \si{\km\per\second} (commande  \verb!\si! pour des unités sans valeur associée).
+
+\section{Des équations}\label{sec:32}
+
+Pour introduire du langage mathématique dans le corps de texte, on l'encastre entre \verb!$! et \verb!$!. Par exemple, \verb!$\delta_{p}+\rho_{p}$! donne l'expression $\delta_{p}+\rho_{p}$.
+
+S'agissant des équations, voici un exemple de mise en forme d'une équation sur plusieurs lignes: 
+
+\noindent\begin{minipage}{0.53\linewidth} 
+\begin{equation}\label{eq:long}
+\begin{split}
+\ln{Y}= \alpha&+\sum_{k}(\tau_{k}.T_{k})\\
+&+\sum_{i}(x_{i}.X_{i})\\
+&+\varepsilon
+\end{split}
+\end{equation}
+\end{minipage}
+\hfill
+\begin{minipage}{0.38\linewidth} 
+{\footnotesize
+Avec un commentaire sur la signification des variables par exemple : $Y$ variable à expliquer, $X$ et $T$ variables explicatives, $\tau$ et $x$ des paramètres.
+}
+\end{minipage}
+
+\section{Un peu de Sweave}\label{sec:33}
+
+Pour indiquer dans le texte une valeur calculée automatiquement et simultanément \latin{via} \R{}, on peut utiliser la commande \verb!\Sexpr!. Le nombre d'observations de la table \verb!iris! du package \verb!datasets! de R se calcule par exemple avec la commande \verb!\!\verb!Sexpr{dim(iris)[1]}!  : ce qui donne un résulat de \num{\Sexpr{dim(iris)[1]}} observations. Pour aller plus loin, on peut consulter, par exemple, le document \url{https://pbil.univ-lyon1.fr/R/pdf/tdr78.pdf}.
+
+Vous aurez remarqué que dans ce document j'introduis parfois du code source, j'utilise pour cela la commande \verb!\verb!. L'environnement \verb!verbatim! fonctionne également très bien. 
