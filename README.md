@@ -2,19 +2,19 @@
 
 Je partage ici le template qui a servi à la rédaction de mon manuscrit de thèse (pour voir le résultat final, je vous invite à consulter la page http://www.theses.fr/2016BORD0412). 
 
-Ce template se compose d'un fichier maître these_docprincipal.tex qui renvoie ensuite à des fichiers organisés en plusieurs dossiers:
-* preambule: 
-* config: 
-* macros: 
-* ressources: 
-* pictures: 
-* sorties: 
-* tikz: 
-* front: 
-* corpus: 
-* back: 
-* appendix: 
-* build: 
+Ce template se compose d'un fichier maître these_docprincipal.tex qui renvoie ensuite à des fichiers organisés en plusieurs dossiers. 
+* preambule: packages et options du document
+* config: fichiers .sty idnsipensables à l'exécution de certains packages tels que sweave
+* macros: macros personnelles
+* ressources: bibliographie (fichier .bib), acronymes et glossaire 
+* pictures: images du document
+* sorties: sorties statistiques (figures, tableaux, data)
+* tikz: figures tikZ
+* front: ensemble des fichiers .tex qui composent le frontmatter (remerciements, avertissement, épigraphe, sommaire...)
+* corpus: ensemble des fichiers .tex qui composent le corps du texte (introduction, chapitres, conclusion)
+* back: ensemble des fichiers .tex qui composent le backmatter (listes de figures, de tableaux et d'encadrés, liste des références bibliographiques, liste des acronymes et glossaire, table des matière...)
+* appendix: annexes du document
+* build: fichiers produits lors de la compilation
 
 Copiez l'ensemble du projet en local puis compilez le fichier maître these_docprincipal.tex. 
 
