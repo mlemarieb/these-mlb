@@ -1,0 +1,17 @@
+\newglossarystyle{mylist}{%
+\setlist[description]{style=multiline,noitemsep,leftmargin=3cm}
+\renewenvironment{theglossary}%
+{\begin{description}[font=\normalfont]}{\end{description}}%
+%\renewcommand*{\glsnamefont}[1]{\textsc{#1}}
+\renewcommand*{\glossaryheader}{}%
+\renewcommand*{\glsgroupheading}[1]{}%
+\renewcommand*{\glossentry}[2]{%
+\item[\glsentryitem{##1}%
+\glstarget{##1}{\glossentryname{##1}}]
+\glossentrydesc{##1}\glspostdescription\space ##2}%
+\renewcommand*{\subglossentry}[3]{%
+\glssubentryitem{##2}%
+\glstarget{##2}{\strut}%
+\glossentrydesc{##2}\glspostdescription\space ##3.}%
+\renewcommand*{\glsgroupskip}{\ifglsnogroupskip\else\indexspace\fi}%
+}

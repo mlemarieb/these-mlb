@@ -1,0 +1,20 @@
+\DeclareBibliographyDriver{manual}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+%   \newunit\newblock
+%  \printfield{type}%
+% \setunit{\addcomma\addspace}
+%  \printfield{edition}%
+%  \newunit
+%  \printfield{version}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+%  \newunit\newblock
+%  \iftoggle{bbx:related}
+%    {\usebibmacro{related:init}%
+%     \usebibmacro{related}}
+%    {}%
+  \usebibmacro{finentry}}

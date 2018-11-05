@@ -1,0 +1,183 @@
+%%%%%%%%
+% BIBSTYLE: réécriture des commandes
+
+% Uniformisation des formats des noms d'auteur pour toutes les langues
+\renewcommand\mkbibnamefamily[1]{\textsc{#1}} % pour que tous les noms d'auteurs (y compris anglo-saxons) soient en petites capitales (convention française)
+%\DefineBibliographyExtras{french}{\restorecommand\mkbibnamelast} % pour que tous les noms d'auteurs français en minuscules (convention anglosaxone)
+
+% Pas de point à la fin d'une entrée
+\renewbibmacro*{finentry}{\iflistundef{pageref}{\renewcommand{\finentrypunct}{}}{\renewcommand{\finentrypunct}{}}\finentry} 
+ 
+% Supprimer le In: introduit par le style authoryear-comp pour l'entrée Journal Article et newspaper (solution non optimale)
+\renewbibmacro{in:}{% 
+\ifentrytype{article}{}{%
+\ifentrytype{newspaper}{}{%
+\ifentrytype{legislation}{}{%
+\iffieldundef{booktitle}{}{%
+\printtext{\bibstring{in}\intitlepunct}}}}}}
+
+% Personnalisation des drivers : s'appuie sur le fichier : /usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+\input{macros/bibdriver_article.tex}
+\input{macros/bibdriver_book.tex}
+\input{macros/bibdriver_thesis.tex}
+\input{macros/bibdriver_incollection.tex}
+\input{macros/bibdriver_inproceedings.tex}
+\input{macros/bibdriver_manual.tex}
+\input{macros/bibdriver_electronic.tex}
+\input{macros/bibdriver_legislation.tex}
+\input{macros/bibdriver_newspaper.tex}
+\input{macros/bibdriver_database.tex}
+
+% rédéfinir l'affichage du volume et du numéro d'un article de revue : Journal, Volume(Issue) > bibmacro utilisé notamment pour article
+\renewbibmacro*{volume+number+eid}{% Comma and parenthesis before and after journal volume
+  \setunit*{\addcomma\space}% NEW
+  \printfield{volume}%
+  \printfield{number}%
+  \printfield{eid}}
+
+% redéfinir l'affichage d'un événement et de sa date > bibmacro utilisé notamment pour inproceedings
+\renewbibmacro*{event+venue+date}{%
+  \printfield{eventtitle}%
+  \addcomma\addspace%MODIFIE
+  \printfield{eventtitleaddon}%
+  \ifboolexpr{
+    test {\iffieldundef{venue}}
+    and
+    test {\iffieldundef{eventyear}}
+  }
+    {}
+    {\setunit*{\addspace}%
+     \printtext[]{%MODIFIE
+       \printfield{venue}%
+       \setunit*{\addcomma\space}%
+       \printeventdate}}%
+  \newunit} 
+  
+\renewbibmacro*{publisher+location+date}{% > bibmacro utilisé notamment pour incollection, inproceedings, book
+  \printlist{location}%
+  \iflistundef{publisher}
+  {\setunit*{\addcomma\space}}
+  {\setunit*{\addcolon\space}}%
+  \printlist{publisher}%
+%\setunit*{\addcomma\space}%MODIFIE
+%\usebibmacro{date}%MODIFIE
+\newunit}
+
+\renewbibmacro*{institution+location+date}{% > bibmacro utilisé notamment pour report, thesis
+  \printlist{institution}%
+  \setunit*{\addcomma\space}%
+  \printlist{location}%
+  \setunit*{\addcomma\space}
+  \usebibmacro{date}%
+  \newunit}
+
+% personnalisation de la commande de citation: from authoryear-icomp.cbx
+\makeatletter
+\renewbibmacro*{cite:labelyear+extrayear}{% Affichage de la date différente pour newspaper**
+  \iffieldundef{labelyear}{}{%
+  \ifentrytype{newspaper}{%
+    \printtext{du} \printtext[bibhyperref]{\printdate}}{%
+    \printtext[bibhyperref]{\printfield{labelyear}\printfield{extrayear}}}%
+}}
+% \renewbibmacro*{date}{}%
+% \renewbibmacro*{issue+date}{%
+%   \iffieldundef{issue}{}{\printtext[parens]{\printfield{issue}}}%
+%   \newunit}
+\renewbibmacro*{cite}{% pour citep (alias natbib)
+  \ifentrytype{newspaper}{\printfield{journaltitle}\setunit{\addspace}\usebibmacro{cite:labelyear+extrayear}}{%**
+  \ifentrytype{legislation}{\printtext[bibhyperref]{\printfield[alias]{alias}}}{%
+  \iffieldundef{shorthand}
+    {\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}
+       {\usebibmacro{cite:ibid}}
+       {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}}
+          {\usebibmacro{cite:label}%
+           \setunit{\addspace}%
+           \usebibmacro{cite:labelyear+extrayear}%
+           \usebibmacro{cite:reinit}}
+          {\iffieldequals{namehash}{\cbx@lasthash}
+             {\ifthenelse{\iffieldequals{labelyear}{\cbx@lastyear}\AND
+                          \(\value{multicitecount}=0\OR\iffieldundef{postnote}\)}
+                {\setunit{\addcomma}%
+                 \usebibmacro{cite:extrayear}}
+                {\setunit{\compcitedelim}%
+                 \usebibmacro{cite:labelyear+extrayear}%
+                 \savefield{labelyear}{\cbx@lastyear}}}
+             {\printnames{labelname}%
+              \setunit{\nameyeardelim}%
+              \iffieldundef{origyear}{}{\printtext[brackets]{\printfield{origyear}}\setunit{\addspace}}%%% Ajout de la prise en compte de l'année d'origine
+              \usebibmacro{cite:labelyear+extrayear}%**
+              \savefield{namehash}{\cbx@lasthash}%
+              \savefield{labelyear}{\cbx@lastyear}}}}}
+    {\usebibmacro{cite:shorthand}%
+     \usebibmacro{cite:reinit}}}}%
+  \setunit{\multicitedelim}}
+\makeatother
+\makeatletter
+\renewbibmacro*{textcite}{% pour citet (alias natbib)
+  \iffieldequals{namehash}{\cbx@lasthash}
+    {\iffieldundef{shorthand}
+       {\ifthenelse{\iffieldequals{labelyear}{\cbx@lastyear}\AND
+                    \(\value{multicitecount}=0\OR\iffieldundef{postnote}\)}
+          {\setunit{\addcomma}%
+           \usebibmacro{cite:extrayear}}
+          {\setunit{\compcitedelim}%
+           \usebibmacro{cite:labelyear+extrayear}%
+           \savefield{labelyear}{\cbx@lastyear}}}
+       {\setunit{\compcitedelim}%
+        \usebibmacro{cite:shorthand}%
+        \global\undef\cbx@lastyear}}
+    {\ifnameundef{labelname}
+       {\iffieldundef{shorthand}
+          {\usebibmacro{cite:label}%
+           \setunit{%
+             \global\booltrue{cbx:parens}%
+             \printdelim{nonameyeardelim}\bibopenparen}%
+           \ifnumequal{\value{citecount}}{1}
+             {\usebibmacro{prenote}}
+             {}%
+           \ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}
+             {\usebibmacro{cite:ibid}}
+             {\usebibmacro{cite:labelyear+extrayear}}}
+          {\usebibmacro{cite:shorthand}}}
+       {\printnames{labelname}%
+        \setunit{%
+          \global\booltrue{cbx:parens}%
+          \printdelim{nameyeardelim}\bibopenparen}
+          \iffieldundef{origyear}{}{\printtext[brackets]{\printfield{origyear}}\setunit{\addspace}}%%% Ajout de la prise en compte de l'année d'origine% là ?
+        \ifnumequal{\value{citecount}}{1}
+          {\usebibmacro{prenote}}
+          {}%
+        \iffieldundef{shorthand}
+          {\iffieldundef{labelyear}
+             {\usebibmacro{cite:label}}
+             {\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}
+                {\usebibmacro{cite:ibid}}
+                {\usebibmacro{cite:labelyear+extrayear}}}%
+           \savefield{labelyear}{\cbx@lastyear}}
+          {\usebibmacro{cite:shorthand}%
+           \global\undef\cbx@lastyear}}%
+     \stepcounter{textcitecount}%
+     \savefield{namehash}{\cbx@lasthash}}%
+  \setunit{%
+    \ifbool{cbx:parens}
+      {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {}%
+    \textcitedelim}}
+\makeatother
+
+%Personnalisation de l'affichage des dates de publications dans les entrées
+\renewbibmacro*{date+extrayear}{%
+  \iffieldundef{\thefield{datelabelsource}year}
+    {}
+    {\printtext[parens]{%
+       \iffieldundef{origyear}% this is new ...
+         {}
+         {\printtext[brackets]{\printorigdate}
+          \setunit{\addspace}}% ... till here
+       \iffieldsequal{year}{\thefield{datelabelsource}year}
+         {\printlabeldateextra}%
+         {\printfield{labelyear}%
+          \printfield{extrayear}}}}}
+  
+
+\input{macros/bibdriver_report.tex}

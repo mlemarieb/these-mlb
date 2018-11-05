@@ -1,0 +1,16 @@
+% Macros de mise en forme d'encadré continu : nouvel environnement
+% debut macro %
+%\DeclareFloatingEnvironment[placement={!h},name=Encadré,fileext=loe]{myfloatstar}
+\newenvironment{frameenv*}[2]
+    {\begin{myfloat}[!p]%htbp
+    % \vspace{2ex}
+    \begin{mdframed}[roundcorner=5pt,backgroundcolor=colenc!70]%blue!10
+    \ContinuedFloat % Suite de l'encadré précédent
+    \captionsetup{list=no} % Non mentionné dans la liste des encadrés
+    \caption[#1]{#2} % ref,shortcap, longcap
+    \begin{multicols}{2}
+    \setstretch{1.125} % Interligne
+    \footnotesize \glsresetall }
+    {\normalsize \end{multicols}\end{mdframed}\end{myfloat}
+    }
+% fin macro %

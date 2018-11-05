@@ -1,0 +1,42 @@
+
+\DeclareBibliographyDriver{newspaper}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \setunit{\space}\newblock%MODIFIE
+  \printfield{howpublished}%
+  \iffieldundef{journaltitle}{}{%
+  \newunit\newblock
+  \usebibmacro{in:}%
+   \usebibmacro{journal}
+   \iffieldequalstr{howpublished}{[en ligne]}{
+   \setunit*{\addspace}
+   \printtext{(web)}
+   \setunit*{\addcomma\addspace}\newblock
+   \printtext{mis en ligne le}
+   \setunit*{\addspace}\newblock}{%
+   \setunit*{\addspace}\newblock
+   \printtext{du}
+   \setunit*{\addspace}\newblock}%
+   \printdate}
+  \usebibmacro{volume+number+eid}%
+ \setunit*{\addcomma\addspace}\newblock
+ \usebibmacro{note+pages}%
+%  \newunit\newblock
+%  \usebibmacro{location+date}%
+ \newunit\newblock%MODIFIE
+  \iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}%
+%  \newunit\newblock
+%  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+%  \newunit\newblock
+%  \iftoggle{bbx:related}
+%    {\usebibmacro{related:init}%
+%     \usebibmacro{related}}
+%    {}%
+  \usebibmacro{finentry}}

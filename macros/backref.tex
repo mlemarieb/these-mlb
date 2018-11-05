@@ -1,0 +1,15 @@
+% Macros de mise en forme : redéfinition des styles de backref sous bibtex (ne fonctionne pas avec biblatex) (Source : http://monbloginformatique.blogspot.fr/2010/03/hyperref-avec-backref-comment-afficher.html)
+% debut macro  %
+\newcommand{\mapolicebackref}[1]{% définir un style pour les backrefs :
+    \hspace*{\fill} \mbox{\textit {\small #1}}
+}
+\renewcommand*{\backref}[1]{}%pour gérer les backref dans la bibliographie
+\renewcommand*{\backrefalt}[4]{%
+\ifcase #1 \mapolicebackref{pas de citations}
+    \or \mapolicebackref{Cité page #2}
+    \else \mapolicebackref{#1 citations pages #2}
+\fi
+}
+\renewcommand*{\backreftwosep}{ et~}% redéfinir les séparateurs en français : au singulier
+\renewcommand*{\backreflastsep}{, et~}% au pluriel
+% fin macro %

@@ -1,0 +1,14 @@
+% Macros de mise en forme d'encadré : nouvel environnement
+% debut macro %
+\DeclareFloatingEnvironment[name=Encadré,fileext=loe]{myfloat}% option non utuilisée placement={htbp},
+\newenvironment{frameenv}[2]
+    {\begin{myfloat}[!p]%htbp
+    % \vspace{2ex}
+    \begin{mdframed}[roundcorner=5pt,backgroundcolor=colenc!70]%blue!10
+    \caption[#1]{#2}
+    \begin{multicols}{2}
+    \setstretch{1.125} % Interligne
+    \footnotesize \glsresetall }
+    {\normalsize \end{multicols} \end{mdframed} \end{myfloat}
+    }
+% fin macro %

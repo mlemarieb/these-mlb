@@ -1,0 +1,21 @@
+%Macro définissant une environnement pour les résumés dans la classe book
+% début macro %
+\makeatletter
+% \newenvironment{myabstract}{%
+%     \@beginparpenalty\@lowpenalty
+%     \begin{center}%
+%       \bfseries \abstractname
+%       \@endparpenalty\@M
+%     \end{center}}%
+%    {\par}
+\newenvironment{abstract}%
+{\vfill%
+{\normalfont\bfseries %\sffamily
+{\vspace{0.25cm}\noindent\abstractname}
+
+\vspace{0.25cm}
+}%
+}%
+{\vfill\null}
+\makeatother
+% fin macro %

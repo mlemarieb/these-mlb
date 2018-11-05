@@ -1,0 +1,20 @@
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+	\usebibmacro{author}%ou printnames si suppression de la date
+	\newunit\newblock
+     \printfield{title}%
+     \setunit{\space}\newblock
+  	\printfield{howpublished}%
+ \newunit\newblock%MODIFIE
+  \iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}%
+  	\setunit{\bibpagerefpunct}\newblock
+  	\usebibmacro{pageref}%
+%  	\newunit\newblock
+%  	\iftoggle{bbx:related}
+%    {\usebibmacro{related:init}%
+%     \usebibmacro{related}}
+%    {}%
+  	\usebibmacro{finentry}}

@@ -1,0 +1,32 @@
+% Macros de mise en forme : fin de chapitre
+% debut macro %
+% \newcommand{\myornemant}[1]{
+% \begin{center}
+% \IfEqCase{#1}{%
+%         {star}{\hspace{0.2cm}\ding{91}\ding{91}\ding{91}\ding{91}\hspace{0.2cm}}% 
+%         {leaf}{\hspace{0.2cm}{\small \ding{93}\ding{93}\ding{93}\ding{93} }\hspace{0.2cm}}%
+%        % {grape}{\includegraphics[width=0.35cm]{pictures/grape}\includegraphics[width=0.35cm]{pictures/grape}\includegraphics[width=0.35cm]{pictures/grape}\includegraphics[width=0.35cm]{pictures/grape}}%
+%     }
+% \end{center}
+% }
+
+\newlength\hrskip
+\setlength{\hrskip}{\baselineskip}
+\newcommand*\hrornament{\ding{106}\ding{106}\ding{106}\ding{106}}
+
+\newcommand*\hr{\hr@starornot}
+
+\WithSuffix{\newcommand*}\hr*{\hr@starornot[*]}
+
+\newcommand*\hr@starornot[1][]
+ {\begingroup%
+  \par\vspace{0.5\hrskip}%
+  \ifx#1*
+    \noindent\centering \hrornament%
+   %\clearpage
+  \else
+  \fi%
+  \vspace{0.5\hrskip}%
+  \par%
+  \endgroup\@afterindentfalse\@afterheading}
+% fin macro %

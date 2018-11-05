@@ -1,0 +1,61 @@
+%\AtEndDocument{\printfilelist}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\printfilelist}{}
+ {
+%  \cleardoublepage
+%  \section*{Used ~ packages}
+  \setlength{\LTleft}{0pt}
+  \footnotesize
+  \begin{longtable}{@{} >{\ttfamily}l l >{\raggedright}p{.5\linewidth} @{}}
+  \toprule
+  \multicolumn{1}{@{}l}{\bfseries Nom~du~fichier} &
+   \multicolumn{1}{c}{\bfseries Date} &
+   \bfseries Informations
+   \tabularnewline
+   \midrule
+   \endhead
+  %
+	\midrule
+	\textit{Suite~page~suivante}
+	\endfoot 
+	%
+ 	 \bottomrule
+  	\endlastfoot
+  	\nobbz_print_filelist:
+ 	 \end{longtable}
+ 	 }
+
+\tl_new:N \l_nobbz_filelist_body_tl
+\tl_new:N \l_nobbz_fileinfo_tl
+
+\cs_new_protected:Npn \nobbz_print_filelist:
+ {
+  \clist_map_inline:cn { @filelist }
+   {
+    \nobbz_print_fileinfo:n { ##1 }
+   }
+  \tl_use:N \l_nobbz_filelist_body_tl
+ }
+
+\cs_new_protected:Npn \nobbz_print_fileinfo:n #1
+ {
+  \regex_match:nnT { \.(sty|cls)\Z } { #1 }
+   {
+    \nobbz_print_pkginfo:n { #1 }
+   }
+ }
+
+\cs_new_protected:Npn \nobbz_print_pkginfo:n #1
+ {
+  \tl_set_eq:Nc \l_nobbz_fileinfo_tl { ver@#1 }
+  \tl_replace_once:Nnn \l_nobbz_fileinfo_tl { ~ } { & }
+  \tl_put_right:Nx \l_nobbz_filelist_body_tl
+   {
+    \exp_not:n { #1 }
+    &
+    \exp_not:V \l_nobbz_fileinfo_tl
+    \exp_not:N \tabularnewline
+   }
+ }
+\ExplSyntaxOff

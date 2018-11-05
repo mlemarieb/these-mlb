@@ -1,0 +1,29 @@
+% Macro de mise en forme : afficher le logo de R project
+% debut macro  %
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\definecolor{Rcolor}{RGB}{150,160,190}
+
+\newcommand{\Rx}{\fontsize{10pt}{12pt}\selectfont
+\raisebox{.3em}{\hspace{1.2em}%
+\llap{\resizebox{1.09em}{.5em}{\color{black}$\bigcirc$}}%
+\llap{\resizebox{1.199em}{.55em}{\color{darkgray}$\bigcirc$}}%
+\llap{\resizebox{1.19em}{.52em}{\color{gray!50}$\bigcirc$}}%
+\llap{\resizebox{1.1em}{.5em}{\color{gray}$\bigcirc$}}%
+\llap{\resizebox{1.25em}{.55em}{\color{gray}$\bigcirc$}}%
+}%
+\hspace{-.85em}%
+\textbf{%
+%\resizebox{.55em}{1.5ex}{\textcolor{black!80}{\textsf{R}}}%
+\textcolor{black}{\textsf{R}}%
+\hspace{-.025em}\raisebox{.01em}{\llap{\textcolor{Rcolor}{\textsf{R}}}}%
+}}%
+
+\newbox\rbox
+\savebox\rbox{\scalebox{0.1}{\Rx}}
+
+\makeatletter
+\def\R{\scalebox{\f@size}{\usebox\rbox}\xspace}
+\makeatletter
+% fin macro  %

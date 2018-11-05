@@ -1,0 +1,40 @@
+
+\DeclareBibliographyDriver{legislation}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+ %    \printnames{author}%
+ %    \newunit\newblock
+     \printfield{title}%
+     \setunit{\space}\newblock
+  	\printfield{howpublished}%
+  	\iffieldundef{journaltitle}{}{%
+     \newunit\newblock
+     \usebibmacro{in:}%
+   	\usebibmacro{journal}
+  	\setunit*{\addspace}\newblock
+  	\printtext{du}
+  	\printdate}
+     \setunit{\addcomma\space}\newblock
+     \iffieldundef{volume}
+       {}{
+     \printfield{volume}%
+     \iffieldundef{number}{}
+     {\mkbibparens{\printfield{number}}}}
+     \setunit{\addcomma\space}\newblock
+  	 \iffieldundef{texte}
+       {}{%
+     \printfield{texte}}
+     \setunit{\addcomma\space}\newblock
+     \printfield{pages}%
+  	\newunit\newblock%MODIFIE
+  	\iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}%
+  	\setunit{\bibpagerefpunct}\newblock
+  	\usebibmacro{pageref}%
+%  	\newunit\newblock
+%  	\iftoggle{bbx:related}
+%    {\usebibmacro{related:init}%
+%     \usebibmacro{related}}
+%    {}%
+  	\usebibmacro{finentry}}
