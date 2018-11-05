@@ -52,8 +52,6 @@ Si vous utilisez mac os et la distribution MacTeX, vous devez exécuter les comm
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
 "/usr/texbin/biber" build/%  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex` 
 
-**Important: Encodage** L'ensemble des documents sont codés en UTF-8. L'encodage doit être déclaré en préambule (voir le fichier [preambule/packages_communs.tex](preambule/packages_communs.tex) et lors de l'exécution de la commande `sweave`. 
-
 ## License
 
 `Copyright 2018 Marie Lemarié-Boutry`
