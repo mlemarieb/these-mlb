@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%
+% Annexes personnalisées
+\addchap[Annexes]{Annexes}
+
+\renewcommand\thefigure{A.\alph{figure}}   % Numérotation alpha des figures
+\setcounter{figure}{0} % Remise à niveau
+\renewcommand\thetable{A.\alph{table}}   % Numérotation alpha des figures
+\setcounter{table}{0} % Remise à niveau
+
+\addsec[Packages utilisés]{Liste des packages utilisés dans ce document}
+\label{app:packages}
+\printfilelist
+
+\addsec[Précisions méthologiques]{Précisions méthologiques}
+\label{app:methode}
+\input{appendix/app_methode}
+
+\addsec[Illustrations supplémentaires]{Illustrations supplémentaires}
+
+\begin{figure}[p]
+\includegraphics[page=1,width=0.95\textwidth]{pictures/app_fig.png}
+\caption[Titre alpha court d'une illustration annexe]{Titre alpha long d'une illustration supplémentaire en annexe}
+\end{figure}
