@@ -2,6 +2,22 @@
 
 Je partage ici le template qui a servi à la rédaction de mon manuscrit de thèse (pour voir le résultat final, je vous invite à consulter la page http://www.theses.fr/2016BORD0412). 
 
+Ce template se compose d'un fichier maître these_docprincipal.tex qui renvoie ensuite à des fichiers organisés en plusieurs dossiers:
+<ul>
+<li>preambule: </li>
+<li>config: </li>
+<li>macros: </li>
+<li>ressources: </li>
+<li>pictures: </li>
+<li>sorties: </li>
+<li>tikz: </li>
+<li>front: </li>
+<li>corpus: </li>
+<li>back: </li>
+<li>appendix: </li>
+<li>build: </li>
+</ul>
+
 Copiez l'ensemble du projet en local puis compilez le fichier maître these_docprincipal.tex. 
 
 ## Compilation win
