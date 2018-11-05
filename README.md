@@ -21,7 +21,7 @@ Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docp
 
 ## Compilation win
 
-Si vous utilisez windows et la distribution MiKTeX, vous devez exécuter les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
+Si vous utilisez windows et la distribution [MiKTeX](https://miktex.org/), vous devez exécuter les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
 
 `"C:/Program Files/R/R-3.5.1/bin/i386/R.exe" CMD Sweave %.Rnw --encoding=utf8 | 
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
@@ -34,7 +34,7 @@ pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex`
 
 ## Compilation mac os
 
-Si vous utilisez mac os et la distribution MacTeX, vous devez exécuter les commandes suivantes: 
+Si vous utilisez mac os et la distribution [MacTeX](http://www.tug.org/mactex/), vous devez exécuter les commandes suivantes: 
 
 `R CMD Sweave %.Rnw --encoding=utf8 | 
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
