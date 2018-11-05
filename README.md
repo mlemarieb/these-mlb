@@ -1,6 +1,8 @@
 # these-mlb
 
-Je partage ici le template qui a servi à la rédaction de mon manuscrit de thèse. Copiez l'ensemble du projet en local puis compilez le fichier maître these_docprincipal.tex. 
+Je partage ici le template qui a servi à la rédaction de mon manuscrit de thèse (pour voir le résultat final, je vous invite à consulter la page http://www.theses.fr/2016BORD0412). 
+
+Copiez l'ensemble du projet en local puis compilez le fichier maître these_docprincipal.tex. 
 
 Si vous utilisez windows et la distribution MiKTeX, vous devez exécuter les commandes suivantes: 
 
