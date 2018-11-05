@@ -1,0 +1,23 @@
+% Bibliographie
+\phantomsection
+\addcontentsline{toc}{chapter}{Références} % Doit être indiqué juste avant la section que l'on veut faire apparaitre dans le TOC
+\printbibheading[heading=ref]
+\phantomsection
+\addcontentsline{toc}{section}{Ouvrages et publications académiques} 
+\printbibliography[heading=subbibliography,filter=filtrescience,title={Ouvrages et publications académiques} ]
+\phantomsection
+\addcontentsline{toc}{section}{Publications institutionnelles} 
+\printbibliography[heading=subbibliography,filter=filtrerapport,title=Publications d'organismes institutionnels]
+\phantomsection
+\addcontentsline{toc}{section}{Textes juridiques} 
+\printbibliography[heading=subbibliography,type=legislation,title=Textes juridiques]
+\phantomsection
+\addcontentsline{toc}{section}{Articles de presse} 
+\printbibliography[type=newspaper,heading=subbibliography,title=Articles de presse]
+\phantomsection
+\addcontentsline{toc}{section}{Bases de données} 
+\printbibliography[type=database,heading=subbibliography,title=Bases de données]
+\phantomsection
+\addcontentsline{toc}{section}{Documentation technique} 
+\input{back/prenote.tex}
+\printbibliography[heading=subbibliography, prenote=prenote,filter=filtreoutils,title=Documentation technique]

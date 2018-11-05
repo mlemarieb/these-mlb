@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%
+% Appareil de référence
+\begingroup
+\setlength{\parskip}{1pt}
+% Bibliographie
+\cleardoubleemptypage % Nécessaire pour que le lien via hyperref se fasse correctement 
+\input{back/biblio.tex}
+
+% Acronymes
+\cleardoublepage % Nécessaire pour que le lien via hyperref se fasse correctement 
+\input{back/list_acro.tex}
+
+% Glossaire et Index
+\input{back/list_gloss.tex}
+
+% Tables
+% Tables des figures et tableaux
+\cleardoublepage % Nécessaire pour que le lien via hyperref se fasse correctement 
+\input{back/list_lotlof.tex}
+% Tables des matières (toc)
+\cleardoublepage % Nécessaire pour que le lien via hyperref se fasse correctement 
+\input{back/toc.tex}
+\endgroup
