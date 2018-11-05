@@ -1,6 +1,6 @@
 # these-mlb
 
-Je partage ici (pour l'instant en français) le template qui a servi à la rédaction de mon manuscrit de thèse (pour voir le résultat final, je vous invite à consulter la page https://tel.archives-ouvertes.fr/tel-01514178/document). 
+Je partage ici (pour l'instant en français) le template qui a servi à la rédaction de mon manuscrit de thèse en économie (pour voir un exemple de résultat final, je vous invite à consulter la page https://tel.archives-ouvertes.fr/tel-01514178/document). 
 
 Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw) qui renvoie ensuite à des fichiers organisés en plusieurs dossiers. 
 
@@ -17,7 +17,7 @@ Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docp
 * [appendix](/appendix/): annexes du document
 * [build](/build/): fichiers produits lors de la compilation
 
-Copiez l'ensemble du projet en local puis compilez le fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw). 
+**Copiez l'ensemble du projet en local puis compilez le fichier maître [these_docprincipal.Rnw](/these_docprincipal.Rnw).** 
 
 ## Compilation win
 
