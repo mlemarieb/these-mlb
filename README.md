@@ -23,26 +23,26 @@ Ce template se compose d'un fichier maître [these_docprincipal.Rnw](/these_docp
 
 Si vous utilisez windows et la distribution MiKTeX, vous devez exécuter les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
 
-"C:/Program Files/R/R-3.5.1/bin/i386/R.exe" CMD Sweave %.Rnw --encoding=utf8 | 
+`"C:/Program Files/R/R-3.5.1/bin/i386/R.exe" CMD Sweave %.Rnw --encoding=utf8 | 
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
 makeindex -s build/%.ist -t build/%.alg -o build/%.acr build/%.acn | 
 makeindex -s build/%.ist -t build/%.glg -o build/%.gls build/%.glo | 
 makeindex build/%.idx | pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex| 
 biber build/% | pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex| 
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex| 
-pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex
+pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex`
 
 ## Compilation mac os
 
 Si vous utilisez mac os et la distribution MacTeX, vous devez exécuter les commandes suivantes: 
 
-R CMD Sweave %.Rnw --encoding=utf8 | 
+`R CMD Sweave %.Rnw --encoding=utf8 | 
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
 "/usr/texbin/makeindex" -s build/%.ist -t build/%.alg -o build/%.acr build/%.acn | 
 "/usr/texbin/makeindex" -s build/%.ist -t build/%.glg -o build/%.gls build/%.glo | 
 "/usr/texbin/makeindex" build/%.idx | 
 "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
-"/usr/texbin/biber" build/%  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex 
+"/usr/texbin/biber" build/%  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex` 
 
 ## Encodage
 
