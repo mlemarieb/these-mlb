@@ -1,5 +1,4 @@
 # these-mlb
-thesis template
 
 Je partage ici le template qui a servi à la rédaction de mon manuscrit de thèse. Copiez l'ensemble du projet en local puis compilez le fichier maître these_docprincipal.tex. 
 
