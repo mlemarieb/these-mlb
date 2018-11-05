@@ -1,0 +1,101 @@
+% A compiler à part avec pdflatex
+
+\documentclass[paper=a4,fontsize=12pt,version=last,final]{scrbook}
+
+\input{preambule/packages_communs.tex}
+\input{preambule/color.tex}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{geometry}
+\geometry{% siehe geometry.pdf (Figure 1)
+  top=15mm,
+	bottom=25mm,
+	showframe=false, % For debugging: try true and see the layout frames
+	left=25mm,
+	right=25mm
+}
+\usepackage{setspace} 
+\setstretch{1.125}
+\newenvironment{centertitlepage}
+{\vspace*{\fill}\begin{center}}%\newpage
+{\end{center}\vspace*{\fill}\par}%\pagebreak
+% Color
+%\color{colcouv}
+% % Fix bold small caps with latin modern
+% \normalfont %to load T1lmr.fd 
+% \DeclareFontShape{T1}{lmr}{bx}{sc} { <-> ssub * cmr/bx/sc }{}
+% PDF-related
+\usepackage[%
+% pdftitle={these},
+% pdfauthor={Auteur},
+% pdfsubject={Titre de la thèse},
+% pdfkeywords={mot-clé1, mot-clé2, mot-clé3, mot-clé4},
+  pdfproducer={latex},
+  pdfcreator={pdflatex}
+  ]{hyperref}
+
+\begin{document}
+
+\begin{titlepage}
+
+\noindent \includegraphics[width=0.45\textwidth,trim = 75mm 5mm 10mm 5mm, clip]{pictures/logo.png}
+
+\begin{centertitlepage}
+
+\MakeUppercase{Thèse présentée}
+
+\vspace{0.35cm} 
+\MakeUppercase{pour obtenir le grade de}
+
+\vspace{0.65cm} 
+{\large\bfseries \MakeUppercase{Docteur de}}
+
+\vspace{0.35cm} 
+{\large\bfseries \MakeUppercase{l'Université de XX}}
+
+\vspace{0.65cm} 
+\MakeUppercase{école doctorale XXXX -- E.D. XX}
+
+\vspace{0.35cm} 
+\MakeUppercase{Spécialité: Sciences}
+
+\vspace{1.85cm} 
+{\Large Par {\bfseries Prénom \MakeUppercase{Nom}}}
+
+{\Large
+\vspace{1.5cm} 
+\textbf{Un modèle de thèse \LaTeX{} en français }
+
+\vspace{0.2cm}\textbf{utilisant entre autres Sweave, Bib\LaTeX{}, Glossary et Ti\textit{k}Z}
+}
+
+\vspace{1.85cm} 
+Sous la direction de Prénom \MakeUppercase{Nom}
+
+\vspace{1.5cm} 
+\noindent Soutenue publiquement le XX mois 20XX
+
+\end{centertitlepage}
+
+{\normalfont
+
+\vspace{0.75cm} 
+\noindent Membres du Jury:
+
+\vspace{0.5cm}
+\noindent M. \textbf{\MakeUppercase{Nom}} Prénom, titre, Institut \hfill 
+
+\noindent Mme \textbf{\MakeUppercase{Nom}} Prénom, titre, Institut, \textbf{rapporteur}
+
+\noindent Mme \textbf{\MakeUppercase{Nom}} Prénom, titre, Institut \hfill
+
+\noindent M. \textbf{\MakeUppercase{Nom}} Prénom, titre, Institut, \textbf{rapporteur}
+
+\noindent Mme \textbf{\MakeUppercase{Nom}} Prénom, titre, Institut, \textbf{directrice}
+
+\noindent M. \textbf{\MakeUppercase{Nom}} Prénom, titre, Institut \hfill 
+
+}
+
+\end{titlepage}
+
+\end{document}
