@@ -1,0 +1,103 @@
+%% Tikz figure
+%% Source : https://olivierlemaire.wordpress.com/2010/12/21/frise-chronologique/ (site initial supprimé par son auteur)
+%% https://fr.comp.text.tex.narkive.com/FPmUJXhp/frise-chronologique-timeline
+
+%% commandes définies (et à personnaliser) dans le fichier macros/frise.tex
+\pgfdeclarelayer{antiground}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{antiground,background,main,foreground}
+
+% new commands
+
+\newcommand{\topLegend}[2]{
+  node [text centered,%
+  %shade,%
+  %top color=\fColor,%
+  %draw,%
+  semithick,
+  rounded corners=2pt,
+  above,
+  #1] {#2}}
+
+\newcommand{\crisisLegend}[2]{
+  node [text centered,%
+  %shade,%
+  %top color=\fColor,%
+  %draw,%
+  semithick,
+  anchor=north,
+  rounded corners=2pt,
+  above,
+  #1] {#2}}
+  
+\newcommand{\bottomLegend}[2]{
+  node [text centered,%
+  %shade,%
+  %top color=\fColor,%
+  %draw,%
+  semithick,
+  rounded corners=2pt,
+  below,
+  #1] {#2}}
+  
+\newcommand{\topEvent}[3]{\draw[<-,very thick,draw=lg] (#1) coordinate (#2) (#2 |- xH axis) -- ++ (#3)}
+\newcommand{\bottomEvent}[3]{\draw[<-,very thick,draw=lg] (#1) coordinate (#2) (#2 |- xL axis) -- ++ (#3)}
+\newcommand{\bottomGraphics}[2]{node[draw,anchor=north,inner sep=1pt,thin] {\includegraphics[#1]{#2}}}
+\newcommand{\topGraphics}[2]{node[draw,anchor=south,inner sep=1pt,thin] {\includegraphics[#1]{#2}}}
+
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[%
+=latex,%
+font=\fontfamily{phv}\fontsize{7}{8}\selectfont,
+legend/.style={%
+draw,
+rounded corners=2pt,
+shade}]
+
+% frise
+\draw[rounded corners,shade,left color=blue_dark!40,right color=blue_dark!5] (-14,0) -- ++ (28,0) -- ++ (1,1.5) -- ++(-1,1.5) -- ++ (-28,0) -- cycle;
+% axe bas
+\path (-10,0) -- (10,0) coordinate (xL axis);
+% axe haut
+\path[yshift=+3cm] (-10,0) -- (10,0) coordinate (xH axis);
+% rupture
+\path[] (1.25,-0.25) rectangle ++(5mm,3.5) node [midway,rotate=90,minimum width=3.5cm,shade,sharp corners,inner sep=1pt] (r1) {\tiny rupture};
+\draw[densely dotted] (r1.south east) -- (r1.south west) (r1.north east) -- (r1.north west);
+\draw[] (0,0) coordinate (an0) -- (an0 |- xH axis) -- ++ (0,2.5mm) node [above] {An 0};
+
+
+% scope 1
+\begin{scope}[xshift=3cm,xscale={14cm/400cm}]
+% graduation
+\draw[] (0,0) coordinate (an0) -- (an0 |- xH axis) -- ++ (0,2.5mm) node [above] {1600};
+\draw[] (100,0) coordinate (an100) -- (an100 |- xH axis) -- ++ (0,2.5mm) node [above] {1700};
+\draw[] (200,0) coordinate (an200) -- (an200 |- xH axis) -- ++ (0,2.5mm) node [above] {1800};
+
+% evennement
+\bottomEvent{42,0}{an1642}{0,-5mm} \bottomLegend{text width=2cm,name=p}{1642 :\\Pascaline};
+\topEvent{17,0}{an1617}{0,1} \topLegend{text width=4cm,name=r}{1617 :\\Napier : invention logarithmes\\W. Oughtred : R\`egles \`a calculer};
+\bottomEvent{127,0}{an1727}{0,-5mm} \bottomLegend{text width=2cm}{1727 :\\Carte Perfor\'ee};
+\topEvent{233,0}{an1617}{0,1} \topLegend{text width=4cm}{1833 :\\machine \`a babbage\\1ere Programmeuse : A. Lovelace};
+\end{scope}
+
+% scope 2
+\begin{scope}[xshift=0cm,xscale={0.7cm/30cm}]
+% graduation
+\draw[] (-100,0) coordinate (anM1000) -- (anM1000 |- xH axis) -- ++ (0,2.5mm) node [above,fill=white] {-1000};
+\draw[] (-200,0) coordinate (anM2000) -- (anM2000 |- xH axis) -- ++ (0,2.5mm) node [above,fill=white] {-2000};
+\draw[] (-300,0) coordinate (anM3000) -- (anM3000 |- xH axis) -- ++ (0,2.5mm) node [above,fill=white] {-3000};
+%evennement
+\bottomEvent{-30,0}{anM300}{0,-5mm} \bottomLegend{text width=2.5cm}{-300 :\\Abaques et bouliers};
+\topEvent{-30,0}{anM3002}{0,2cm} \topLegend{text width=4cm}{-300 : logique\\syllogismes (\textsc{socrates})\\
+\vspace{-12pt}\begin{enumerate}\itemsep-2pt
+\item tout homme est mortel
+\item or Socrates est un homme
+\item donc Socrates est mortel
+\end{enumerate}
+};
+\topEvent{-173,0}{anM1730}{0,7.5mm} \topLegend{text width=2.5cm}{-1730 :\\1er algorithme};
+\bottomEvent{-300,0}{anM1730}{0,-5mm} \bottomLegend{text width=3.5cm}{-3000 :\\apparition du binaire dans le symbole de l'empereur chinois Fou~Hi};
+\end{scope}
+\end{tikzpicture}
+}
