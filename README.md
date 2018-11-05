@@ -21,7 +21,7 @@ Copiez l'ensemble du projet en local puis compilez le fichier maître [these_doc
 
 ## Compilation win
 
-Si vous utilisez windows et la distribution MiKTeX, vous devez exécuter les commandes suivantes: 
+Si vous utilisez windows et la distribution MiKTeX, vous devez exécuter les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
 
 "C:/Program Files/R/R-3.5.1/bin/i386/R.exe" CMD Sweave %.Rnw --encoding=utf8 | 
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
