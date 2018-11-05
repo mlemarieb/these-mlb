@@ -1,0 +1,42 @@
+
+%%%%%%%%
+% Avertissement
+\cleardoublepage 
+\thispagestyle{plain}
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Avertissement}
+\hypertarget{avert}{} % Lien en métadonnées, mais pas de renvoi dans les toc
+\bookmark[level=chapter,dest=avert]{Avertissement}
+\input{front/avertissement.tex}
+%%%%%%%%
+% Résumé
+\cleardoublepage 
+\thispagestyle{plain}
+\hypertarget{resum}{} % Lien en métadonnées, mais pas de renvoi dans les toc
+\bookmark[level=chapter,dest=resum]{Résumé\slash Abstract}
+\input{front/resume.tex}
+
+%%%%%%%%
+% Remerciements
+\cleardoublepage 
+\pagestyle{plain}
+\hypertarget{merci}{}% Lien en métadonnées, mais pas de renvoi dans les toc
+\bookmark[level=chapter,dest=merci]{Remerciements}
+\input{front/merci.tex}
+
+\begingroup
+\setlength{\parskip}{1pt}
+%%%%%%%%
+% Citation
+\cleardoublepage % Affichage en page impaire (option twoside) 
+\thispagestyle{plain}
+\input{front/epigraph.tex}
+
+%%%%%%%%
+% Sommaire
+\cleardoublepage 
+\pagestyle{plain}
+\hypertarget{somcourt}{} % Lien en métadonnées, mais pas de renvoi dans les toc
+\bookmark[level=chapter,dest=somcourt]{Sommaire}
+\input{front/sommaire.tex}
+\endgroup
