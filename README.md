@@ -44,11 +44,7 @@ pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex`
 
 Si vous utilisez mac os et la distribution MacTeX, vous devez d'abord exécuter la commande suivante sous R:
 
-`rm(list = ls(all = TRUE))
-sessionInfo()
-Sys.setlocale("LC_CTYPE", "fr_FR.utf8")
-options(encoding = "utf8")
-Sweave("thesemarie.rnw",encoding = 'utf8')`
+`Sweave("these_docprincipal.rnw",encoding = 'utf8')`
 
 Puis les commandes suivantes sous votre éditeur TeX: 
 
