@@ -29,7 +29,7 @@ Une fois ces pré-requis installés, **copiez l'ensemble du projet en local via 
 
 ### Compilation win
 
-Si vous utilisez windows et la distribution MikTeX, vous devez exécuter les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
+Si vous utilisez windows et la distribution MikTeX, vous devez exécuter, à votre version de R près, les commandes suivantes après avoir bien indiqué le chemin à MikTeX vers les fichiers du dossier [config](/config/) (Settings, onglet Roots, Add a path):
 
 `"C:/Program Files/R/R-3.5.1/bin/i386/R.exe" CMD Sweave %.Rnw --encoding=utf8 | 
 pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
@@ -42,10 +42,17 @@ pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex`
 
 ### Compilation mac os
 
-Si vous utilisez mac os et la distribution MacTeX, vous devez exécuter les commandes suivantes: 
+Si vous utilisez mac os et la distribution MacTeX, vous devez d'abord exécuter la commande suivante sous R:
 
-`R CMD Sweave %.Rnw --encoding=utf8 | 
-"/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
+`rm(list = ls(all = TRUE))
+sessionInfo()
+Sys.setlocale("LC_CTYPE", "fr_FR.utf8")
+options(encoding = "utf8")
+Sweave("thesemarie.rnw",encoding = 'utf8')`
+
+Puis les commandes suivantes sous votre éditeur TeX: 
+
+`"/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
 "/usr/texbin/makeindex" -s build/%.ist -t build/%.alg -o build/%.acr build/%.acn | 
 "/usr/texbin/makeindex" -s build/%.ist -t build/%.glg -o build/%.gls build/%.glo | 
 "/usr/texbin/makeindex" build/%.idx | 
