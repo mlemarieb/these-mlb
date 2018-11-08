@@ -1,7 +1,0 @@
-This is makeindex, version 2.15 [MiKTeX 2.9.6840 64-bit] (kpathsea + Thai support).
-Scanning style file ./build/these_docprincipal.ist.............................done (29 attributes redefined, 0 ignored).
-Scanning input file build/these_docprincipal.acn....done (7 entries accepted, 0 rejected).
-Sorting entries....done (22 comparisons).
-Generating output file build/these_docprincipal.acr....done (16 lines written, 0 warnings).
-Output written in build/these_docprincipal.acr.
-Transcript written in build/these_docprincipal.alg.
