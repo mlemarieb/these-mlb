@@ -94,7 +94,7 @@ Enfin, j'ai inclus des tableaux (tableaux \ref{tab:tabdico} et \ref{tab:tabresum
 
 \begin{figure}
 \input{tikz/tikztemps.tex}
-\caption[Schéma TikZ: chronologie]{Schéma TikZ: chronologie (source: \url{https://olivierlemaire.wordpress.com/2010/12/21/frise-chronologique/ (site initial supprimé par son auteur)}) 
+\caption[Schéma TikZ: chronologie]{Schéma TikZ: chronologie (source: \url{https://olivierlemaire.wordpress.com/2010/12/21/frise-chronologique/} (site initial supprimé par son auteur)) 
 \comment{Un commentaire sur la figure.}}\label{fig:tikztemps}
 \end{figure}
 
