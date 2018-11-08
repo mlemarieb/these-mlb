@@ -48,12 +48,14 @@ Si vous utilisez mac os et la distribution MacTeX, vous devez d'abord exécuter 
 
 Puis les commandes suivantes sous votre éditeur TeX: 
 
-`"/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
-"/usr/texbin/makeindex" -s build/%.ist -t build/%.alg -o build/%.acr build/%.acn | 
-"/usr/texbin/makeindex" -s build/%.ist -t build/%.glg -o build/%.gls build/%.glo | 
-"/usr/texbin/makeindex" build/%.idx | 
-"/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
-"/usr/texbin/biber" build/%  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex  | "/usr/texbin/pdflatex" -output-directory=build -synctex=1 -interaction=nonstopmode %.tex` 
+`pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
+makeindex -s build/%.ist -t build/%.alg -o build/%.acr build/%.acn | 
+makeindex -s build/%.ist -t build/%.glg -o build/%.gls build/%.glo | 
+makeindex build/%.idx | 
+pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex | 
+biber build/%  | 
+pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex  | 
+pdflatex -output-directory=build -synctex=1 -interaction=nonstopmode %.tex` 
 
 ## License
 
