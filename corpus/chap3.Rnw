@@ -110,10 +110,10 @@ Enfin, j'ai inclus des tableaux (tableaux \ref{tab:tabdico} et \ref{tab:tabresum
 
 \section[Des tableaux ]{Des tableaux}\label{sec:24}
 
-\lipsum[24]
-
-\input{sorties/tabresumecourt.tex}
-
 \lipsum[25]
 
 \input{sorties/tabdico.tex}
+
+\lipsum[24]
+
+\input{sorties/tabresumecourt.tex}
